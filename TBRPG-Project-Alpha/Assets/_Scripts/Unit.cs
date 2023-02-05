@@ -8,6 +8,10 @@ public class Unit : MonoBehaviour
     private const int ACTION_POINTS_MAX = 2;
 
     public static event EventHandler OnAnyActionPointsChanged;
+    public static event EventHandler OnAnyUnitSpawned;
+    public static event EventHandler OnAnyUnitDead;
+
+   [SerializeField] private bool isEnemy;
 
     private GridPosition gridPosition;
     private MoveAction moveAction;
@@ -28,6 +32,9 @@ public class Unit : MonoBehaviour
         LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
 
         TurnSystem.Instance.OnTurnChanged += Instance_OnTurnChanged;
+
+        OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
+
     }
 
     private void Update()
@@ -104,14 +111,24 @@ public class Unit : MonoBehaviour
 
     private void Instance_OnTurnChanged(object sender, EventArgs e)
     {
-        actionPoints = ACTION_POINTS_MAX;
+        if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
+            (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
+        {
+            actionPoints = ACTION_POINTS_MAX;
 
-        OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+            OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+        }
+        
     }
 
 
     public int GetActionPoints()
     {
         return actionPoints;
+    }
+
+    public bool IsEnemy()
+    {
+        return isEnemy;
     }
 }
