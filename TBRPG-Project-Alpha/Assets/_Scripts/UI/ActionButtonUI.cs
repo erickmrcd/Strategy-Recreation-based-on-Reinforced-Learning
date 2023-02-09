@@ -28,7 +28,6 @@ public class ActionButtonUI : MonoBehaviour
     {
         BaseAction selectedBaseAction = UnitActionSystem.Instance.GetSelectedAction();
         selectedGameObject.SetActive(selectedBaseAction == baseAction);
-        Debug.Log("Estoy aqui;");
     }
 
 
