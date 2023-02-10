@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class ShootAction : BaseAction
 {
-    public event EventHandler OnShoot;
+    public event EventHandler<OnShootEventArgs> OnShoot;
+
+
+    public class OnShootEventArgs : EventArgs
+    {
+        public Unit targetUnit;
+        public Unit shootingUnit;
+    }
+
 
     private enum State
     {
@@ -18,7 +26,8 @@ public class ShootAction : BaseAction
     private float totalShootAmount;
     [SerializeField] private int maxShootDistance = 4;
     [SerializeField] private float rotateSpeed = 10f;
-    private float stateTimer;
+    [SerializeField] private LayerMask obstaclesLayerMask;
+   private float stateTimer;
     private Unit targetUnit;
     private bool canShootBullet;
 
@@ -57,9 +66,14 @@ public class ShootAction : BaseAction
 
     private void Shoot()
     {
-        OnShoot?.Invoke(this, EventArgs.Empty);
+        OnShoot?.Invoke(this, new OnShootEventArgs
+        {
+            targetUnit = targetUnit,
+            shootingUnit = unit
+        });
 
-        targetUnit.Damage(40);
+
+        targetUnit.Damage();
     }
 
     private void NextState()
@@ -98,6 +112,11 @@ public class ShootAction : BaseAction
         };
     }
 
+    public int GetTargetCountAtGridPosition(GridPosition gridPosition)
+    {
+        return GetValidActionGridPositionList(gridPosition).Count;
+    }
+
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         GridPosition unitGridPosition = unit.GetGridPosition();
@@ -105,11 +124,6 @@ public class ShootAction : BaseAction
         return GetValidActionGridPositionList(unitGridPosition);
     }
 
-
-    public int GetTargetCountAtGridPosition(GridPosition gridPosition)
-    {
-        return GetValidActionGridPositionList(gridPosition).Count;
-    }
 
     private List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
@@ -146,6 +160,20 @@ public class ShootAction : BaseAction
                     // Both Units on same 'team'
                     continue;
                 }
+                Vector3 unitWorldPosition = LevelGrid.Instance.GetWorldPosition(unitGridPosition);
+                Vector3 shootDir = (targetUnit.GetWorldPosition() - unit.GetWorldPosition());
+                float unitShoulderHeight = 1.7f;
+
+                if (Physics.Raycast(
+                    unit.GetWorldPosition() + Vector3.up * unitShoulderHeight,
+                    shootDir,
+                    Vector3.Distance(unit.GetWorldPosition(), targetUnit.GetWorldPosition()),
+                    obstaclesLayerMask))
+                {
+                    continue;
+                }
+                
+                
 
                 validGridPositionList.Add(testGridPosition);
             }

@@ -304,12 +304,12 @@ PrefabInstance:
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.47
+      value: 5.50011
       objectReference: {fileID: 0}
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 11.00022
       objectReference: {fileID: 0}
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
@@ -1361,6 +1361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106979664375959988, guid: 16d75787a2e69bf4ebf027f4bb19875d,
+        type: 3}
+      propertyPath: maxShootDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2983,12 +2988,12 @@ PrefabInstance:
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.47
+      value: 1.50003
       objectReference: {fileID: 0}
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
@@ -2998,7 +3003,7 @@ PrefabInstance:
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.24
+      value: 5.0001
       objectReference: {fileID: 0}
     - target: {fileID: 8844758032338209537, guid: 509328491ce694246843db6df2a267a9,
         type: 3}

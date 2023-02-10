@@ -470,6 +470,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxShootDistance: 4
   rotateSpeed: 10
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-5908666128410358937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3248039112866690411}
+  proyectilePrefab: {fileID: 3962828838085447354, guid: 87eaed67898394045a7a350c913b24bf,
+    type: 3}
 --- !u!1 &7195690701790462233
 GameObject:
   m_ObjectHideFlags: 0
