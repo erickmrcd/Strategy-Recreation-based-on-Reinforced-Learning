@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 1060227608858212425}
   - component: {fileID: 3536569137323088781}
   - component: {fileID: 6011325010226524529}
+  - component: {fileID: -8531359243692975553}
   - component: {fileID: -5908666128410358937}
   - component: {fileID: 6613465268579086037}
   m_Layer: 7
@@ -472,7 +473,22 @@ MonoBehaviour:
   rotateSpeed: 10
   obstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+--- !u!114 &-8531359243692975553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190544701624795365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6eae509c77f4a488b4af0172e31705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdollPrefab: {fileID: 3190544701624795364, guid: a8d4ff81e0e755548a8f7655bf42025f,
+    type: 3}
+  originalRootBone: {fileID: 3194938194703597673}
 --- !u!114 &-5908666128410358937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +517,7 @@ MonoBehaviour:
   animator: {fileID: 3248039112866690411}
   proyectilePrefab: {fileID: 3962828838085447354, guid: 87eaed67898394045a7a350c913b24bf,
     type: 3}
+  shootPointTransform: {fileID: 0}
 --- !u!1 &7195690701790462233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1029,12 @@ PrefabInstance:
 --- !u!4 &3191300450172105529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4170833147357194, guid: 2f3e27eecb190e44a9af50723c394274,
+    type: 3}
+  m_PrefabInstance: {fileID: 3190544700279298867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3194938194703597673 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4966341056781146, guid: 2f3e27eecb190e44a9af50723c394274,
     type: 3}
   m_PrefabInstance: {fileID: 3190544700279298867}
   m_PrefabAsset: {fileID: 0}

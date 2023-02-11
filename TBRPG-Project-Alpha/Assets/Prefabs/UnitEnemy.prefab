@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8531359243692975553, guid: e9b821c207856fe4eacea6d804044754,
+        type: 3}
+      propertyPath: ragdollPrefab
+      value: 
+      objectReference: {fileID: 7689029243243599710, guid: 7844bd9cea6d75f47a143042fec3b9e7,
+        type: 3}
     - target: {fileID: 3190544701624795364, guid: e9b821c207856fe4eacea6d804044754,
         type: 3}
       propertyPath: m_RootOrder
@@ -78,6 +84,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7d22fc6b9a431b043a917fb89a80bcfc, type: 2}
+    - target: {fileID: 6011325010226524529, guid: e9b821c207856fe4eacea6d804044754,
+        type: 3}
+      propertyPath: obstaclesLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e9b821c207856fe4eacea6d804044754, type: 3}

@@ -22,12 +22,15 @@ public class ShootAction : BaseAction
         Cooloff,
     }
 
-    private State state;
-    private float totalShootAmount;
+    
     [SerializeField] private int maxShootDistance = 4;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
-   private float stateTimer;
+    [SerializeField] private int unitWeaponDamage = 20;
+
+    private State state;
+    private float totalShootAmount;
+    private float stateTimer;
     private Unit targetUnit;
     private bool canShootBullet;
 
@@ -73,7 +76,7 @@ public class ShootAction : BaseAction
         });
 
 
-        targetUnit.Damage();
+        targetUnit.Damage(unitWeaponDamage);
     }
 
     private void NextState()

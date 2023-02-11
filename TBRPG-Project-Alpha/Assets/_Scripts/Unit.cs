@@ -11,7 +11,8 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
 
-   [SerializeField] private bool isEnemy;
+    [SerializeField] private bool isEnemy;
+    
 
     private GridPosition gridPosition;
     private BaseAction[] baseActions;
