@@ -27,7 +27,11 @@ public class UnitAnimator : MonoBehaviour
 
     private void MoveAction_OnStartMoving(object sender, EventArgs e)
     {
-        animator.SetBool("IsWalking", true);
+        if (animator != null)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        
     }
 
     private void MoveAction_OnStopMoving(object sender, EventArgs e)

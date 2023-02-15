@@ -95,6 +95,7 @@ public class MoveAction : BaseAction
                 }
                 if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition))
                 {
+
                     continue;
                 }
                 if (!Pathfinding.Instance.HasPath(unitGridPosition, testGridPosition))
@@ -125,7 +126,7 @@ public class MoveAction : BaseAction
         return new EnemyAIAction
         {
             gridPosition = gridPosition,
-            actionValue = targetCountAtGridPosition * 10,
+            actionValue = targetCountAtGridPosition * 100,
         };
     }
 }
