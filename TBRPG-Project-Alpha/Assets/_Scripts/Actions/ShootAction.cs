@@ -23,7 +23,7 @@ public class ShootAction : BaseAction
     }
 
     
-    [SerializeField] private int maxShootDistance = 4;
+    [SerializeField] private int maxShootDistance = 1;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
     [SerializeField] private int unitWeaponDamage = 20;
@@ -204,5 +204,8 @@ public class ShootAction : BaseAction
         return targetUnit;
     }
 
-
+    public int GetMaxShootDistance()
+    {
+        return maxShootDistance;
+    }
 }

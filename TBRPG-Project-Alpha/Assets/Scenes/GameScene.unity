@@ -1957,6 +1957,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSystemVisualPrefab: {fileID: 5961696867337384756, guid: 77e6c4894904b014e8c30a54949b3a8c,
     type: 3}
+  gridVisualTypeMaterialList:
+  - gridVisualType: 0
+    material: {fileID: 2100000, guid: 019fcb76fddd6c24d9ff677ef2f25f3a, type: 2}
+  - gridVisualType: 1
+    material: {fileID: 2100000, guid: 216b0e662ec4ed640bc709f16a560c63, type: 2}
+  - gridVisualType: 2
+    material: {fileID: 2100000, guid: dc41c8bbb1b07a142a0c011ae9b417fd, type: 2}
+  - gridVisualType: 3
+    material: {fileID: 2100000, guid: 6b4264bc3ec8e2942b249cf1ba3b778c, type: 2}
+  - gridVisualType: 4
+    material: {fileID: 2100000, guid: e4f91f302a9cd044bae68614c3f4f905, type: 2}
 --- !u!1 &884512398
 GameObject:
   m_ObjectHideFlags: 0
