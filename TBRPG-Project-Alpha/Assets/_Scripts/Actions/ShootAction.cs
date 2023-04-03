@@ -26,7 +26,7 @@ public class ShootAction : BaseAction
     [SerializeField] private int maxShootDistance = 1;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
-    [SerializeField] private int unitWeaponDamage = 20;
+    [SerializeField] private int unitWeaponDamage = 15;
 
     private State state;
     private float totalShootAmount;

@@ -90,6 +90,11 @@ public class Unit : MonoBehaviour
         return baseActions;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="baseAction"></param>
+    /// <returns></returns>
     public bool TrySpendActionPointsToTakeAction(BaseAction baseAction)
     {
         if (CanSpendActionPointsToTakeAction(baseAction))

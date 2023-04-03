@@ -128,16 +128,54 @@ public class GridSystemVisual : MonoBehaviour
         }
     }
 
+    private void ShowGridPositionRangeSquare(GridPosition gridPosition, int range, GridVisualType gridVisualType)
+    {
+        List<GridPosition> gridPositionList = new List<GridPosition>();
+
+        for (int x = -range; x <= range; x++)
+        {
+            for (int z = -range; z <= range; z++)
+            {
+                GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
+
+                if (range > 1)
+                {
+                    if (x == 0 && z== -1 || x == 0 && z == 0 || x == 0 && z == 1 )
+                    {
+                        continue;
+                    }
+                    if (x == 1 && z == -1 || x == 1 && z == 0 || x == 1 && z == 1)
+                    {
+                        continue;
+                    }
+                    if (x == -1 && z == -1 || x == -1 && z == 0 || x == -1 && z == 1)
+                    {
+                        continue;
+                    }
+                }
+                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
+                {
+                    continue;
+                }
+
+                gridPositionList.Add(testGridPosition);
+            }
+        }
+
+        ShowGridPositionList(gridPositionList, gridVisualType);
+    }
+
+
     private void UpdateGridVisual()
     {
         HideAllGridPosition();
 
         Unit selectedUnit = UnitActionSystem.Instance.GetSelectedUnit();
-        BaseAction selctedAction = UnitActionSystem.Instance.GetSelectedAction();
+        BaseAction selectedAction = UnitActionSystem.Instance.GetSelectedAction();
 
         GridVisualType gridVisualType = GridVisualType.Green;
 
-        switch (selctedAction)
+        switch (selectedAction)
         {
             case MoveAction move:
                 gridVisualType = GridVisualType.Green;
@@ -147,14 +185,22 @@ public class GridSystemVisual : MonoBehaviour
                 break;
             case ShootAction shoot:
                 gridVisualType = GridVisualType.Red;
-
                 ShowGridPOsitionRange(selectedUnit.GetGridPosition(),shoot.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
+            case SwordAction swordAction:
+                gridVisualType = GridVisualType.Red;
+                ShowGridPositionRangeSquare(selectedUnit.GetGridPosition(), swordAction.GetMaxSwordDistance(), GridVisualType.RedSoft);
+                break;
+            case BowAction bowAction:
+                gridVisualType = GridVisualType.Red;
+                ShowGridPositionRangeSquare(selectedUnit.GetGridPosition(), bowAction.GetMaxShootDistance(), GridVisualType.RedSoft);
+                break;
             default:
+                
                 break;
         }
         ShowGridPositionList(
-            selctedAction.GetValidActionGridPositionList(), gridVisualType);
+            selectedAction.GetValidActionGridPositionList(), gridVisualType);
     }
 
     private Material GetGridVisualTypeMaterial(GridVisualType gridVisualType)

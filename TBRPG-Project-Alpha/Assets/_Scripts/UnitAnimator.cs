@@ -23,7 +23,14 @@ public class UnitAnimator : MonoBehaviour
         {
             shootAction.OnShoot += ShootAction_OnShoot;
         }
+
+        if (TryGetComponent<BowAction>(out BowAction bowAction))
+        {
+            bowAction.OnBowShoot += BowAction_OnShoot; ;
+        }
     }
+
+
 
     private void MoveAction_OnStartMoving(object sender, EventArgs e)
     {
@@ -39,8 +46,7 @@ public class UnitAnimator : MonoBehaviour
     {
         animator.SetTrigger("Shoot");
 
-        //Transform bulletProjectileTransform =
-        //    Instantiate(proyectilePrefab, shootPointTransform.position, Quaternion.identity);
+        //Transform bulletProjectileTransform = Instantiate(proyectilePrefab, shootPointTransform.position, Quaternion.identity);
 
         //Projectile projectile = bulletProjectileTransform.GetComponent<Projectile>();
 
@@ -49,6 +55,24 @@ public class UnitAnimator : MonoBehaviour
         //targetUnitShootAtPosition.y = shootPointTransform.position.y;
 
         //projectile.Setup(targetUnitShootAtPosition);
+
+    }
+
+    private void BowAction_OnShoot(object sender, BowAction.OnBowShootEventArgs e)
+    {
+
+        animator.SetTrigger("Shoot");
+
+
+        Transform bulletProjectileTransform = Instantiate(proyectilePrefab, shootPointTransform.position, Quaternion.identity);
+
+        Arrow projectile = bulletProjectileTransform.GetComponent<Arrow>();
+
+        Vector3 targetUnitShootAtPosition = e.targetUnit.GetWorldPosition();
+
+        targetUnitShootAtPosition.y = shootPointTransform.position.y;
+
+        projectile.Setup(targetUnitShootAtPosition);
 
     }
 

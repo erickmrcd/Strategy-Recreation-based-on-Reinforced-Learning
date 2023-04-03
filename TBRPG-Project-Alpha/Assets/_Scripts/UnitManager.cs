@@ -32,7 +32,10 @@ public class UnitManager : MonoBehaviour
     {
         Unit.OnAnyUnitSpawned += Unit_OnAnyUnitSpawned;
         Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
+        
     }
+
+
 
     private void Unit_OnAnyUnitSpawned(object sender, System.EventArgs e)
     {
@@ -43,6 +46,7 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Add(unit);
+
         }
         else
         {
@@ -59,12 +63,22 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Remove(unit);
+            if (enemyUnitList.Count == 0)
+            {
+                GameManager.OnGameStateChange += GameManager_OnGameStateChangeVictory;
+            }
         }
         else
         {
             friendlyUnitList.Remove(unit);
+            if (friendlyUnitList.Count == 0)
+            {
+                GameManager.OnGameStateChange += GameManager_OnGameStateChangeLose; ;
+            }
         }
     }
+
+
 
     public List<Unit> GetUnitList()
     {
@@ -80,4 +94,15 @@ public class UnitManager : MonoBehaviour
     {
         return enemyUnitList;
     }
+
+    private void GameManager_OnGameStateChangeVictory(GameState state)
+    {
+        state = GameState.Victory;
+    }
+
+    private void GameManager_OnGameStateChangeLose(GameState state)
+    {
+        state = GameState.Lose;
+    }
 }
+
