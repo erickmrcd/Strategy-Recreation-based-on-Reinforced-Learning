@@ -199,6 +199,7 @@ public class GridSystemVisual : MonoBehaviour
                 
                 break;
         }
+        if(selectedAction != null)
         ShowGridPositionList(
             selectedAction.GetValidActionGridPositionList(), gridVisualType);
     }

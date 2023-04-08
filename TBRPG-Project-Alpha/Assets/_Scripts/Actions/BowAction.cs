@@ -6,6 +6,7 @@ using UnityEngine;
 public class BowAction : BaseAction
 {
     public event EventHandler<OnBowShootEventArgs> OnBowShoot;
+    public event EventHandler OnAiming;
 
     public class OnBowShootEventArgs : EventArgs
     {
@@ -44,12 +45,17 @@ public class BowAction : BaseAction
             case State.Aiming:
                 Vector3 aimDir = (targetUnit.GetWorldPosition() - unit.GetWorldPosition()).normalized;
                 transform.forward = Vector3.Lerp(transform.forward, aimDir, Time.deltaTime * rotateSpeed);
-                break;
-            case State.Shooting:
                 if (canShootAnArrow)
                 {
-                    Shoot();
+                    Aiming();
                     canShootAnArrow = false;
+                }
+                break;
+            case State.Shooting:
+                if (!canShootAnArrow)
+                {
+                    Shoot();
+                    canShootAnArrow = true;
                 }
                 break;
             case State.Cooloff:
@@ -63,6 +69,11 @@ public class BowAction : BaseAction
             NextState();
         }
 
+    }
+
+    private void Aiming()
+    {
+        OnAiming?.Invoke(this, EventArgs.Empty);
     }
 
     private void Shoot()
@@ -83,7 +94,7 @@ public class BowAction : BaseAction
         {
             case State.Aiming:
                 state = State.Shooting;
-                float shootingStateTime = 0.1f;
+                float shootingStateTime = 0.5f;
                 stateTimer = shootingStateTime;
                 break;
             case State.Shooting:

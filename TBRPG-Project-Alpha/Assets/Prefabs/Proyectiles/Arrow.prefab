@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 8794036970146527755}
   bulletHitVfxPrefab: {fileID: 2593627432738637377}
-  moveSpeed: 5
+  moveSpeed: 20
 --- !u!1 &2587350766886992299
 GameObject:
   m_ObjectHideFlags: 0
