@@ -63,18 +63,10 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Remove(unit);
-            if (enemyUnitList.Count == 0)
-            {
-                GameManager.OnGameStateChange += GameManager_OnGameStateChangeVictory;
-            }
         }
         else
         {
             friendlyUnitList.Remove(unit);
-            if (friendlyUnitList.Count == 0)
-            {
-                GameManager.OnGameStateChange += GameManager_OnGameStateChangeLose; ;
-            }
         }
     }
 
@@ -93,16 +85,6 @@ public class UnitManager : MonoBehaviour
     public List<Unit> GetEnemyUnitList()
     {
         return enemyUnitList;
-    }
-
-    private void GameManager_OnGameStateChangeVictory(GameState state)
-    {
-        state = GameState.Victory;
-    }
-
-    private void GameManager_OnGameStateChangeLose(GameState state)
-    {
-        state = GameState.Lose;
     }
 }
 

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public enum GameState
 {
-    Victory,
-    Lose
+    Play,
+    GameOver
 }
 
 public class GameManager : MonoBehaviour
@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     //Variable
     private List<Unit> playerUnitList;
     private List<Unit> enemyUnitList;
-    private GameState state;
-    public static event Action<GameState> OnGameStateChange;
+    public event EventHandler OnPlayerVictory;
+    public event EventHandler OnPlayerDefeat;
 
     private void Awake()
     {
@@ -32,43 +32,47 @@ public class GameManager : MonoBehaviour
      
         playerUnitList =  UnitManager.Instance.GetFriendlyUnitList();
         enemyUnitList = UnitManager.Instance.GetEnemyUnitList();
-
         
     }
 
-    public void UpdateGameState(GameState nextState)
+    private void Update()
     {
-        state = nextState;
 
-        switch (nextState)
-        {
-            case GameState.Victory:
-                SetWinCondition();
-                break;
-            case GameState.Lose:
-                SetLoseCondition();
-                break;
-            default:
-                break;
-        }
-
-        OnGameStateChange?.Invoke(nextState);
+        CheckForVictoryOrDefeat(); 
+        
     }
 
-    private void SetLoseCondition()
+    private void CheckForVictoryOrDefeat()
+    {
+        if (IAWin())
+        {
+            OnPlayerDefeat?.Invoke(this,EventArgs.Empty);
+        }
+        else if (PlayerWin())
+        {
+            OnPlayerVictory?.Invoke(this,EventArgs.Empty);
+        }
+    }
+
+    private bool IAWin()
     {
         if (playerUnitList.Count == 0)
         {
             Debug.Log("Has perdido");
+            return true;
         }
+        return false;
     }
 
-    private void SetWinCondition()
+    private bool PlayerWin()
     {
         if (enemyUnitList.Count == 0)
         {
             Debug.Log("Has ganado");
+            return true;
         }
+        return false;
+
     }
 
 }
