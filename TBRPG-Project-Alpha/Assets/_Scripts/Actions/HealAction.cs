@@ -12,10 +12,11 @@ public class HealAction : BaseAction
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
+        int targetCountAtGridPosition = unit.GetAction<HealAction>().GetTargetCountAtGridPosition(gridPosition);
         return new EnemyAIAction
         {
             gridPosition = gridPosition,
-            actionValue = 0,
+            actionValue = targetCountAtGridPosition,
         };
     }
 
