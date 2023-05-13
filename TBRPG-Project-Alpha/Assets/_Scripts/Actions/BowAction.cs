@@ -25,13 +25,14 @@ public class BowAction : BaseAction
     [SerializeField] private int maxShootDistance = 1;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
-    [SerializeField] private int unitWeaponDamage = 20;
+    [SerializeField] private int unitWeaponDamage = 100;
 
     private State state;
     private float totalShootAmount;
     private float stateTimer;
     private Unit targetUnit;
     private bool canShootAnArrow;
+    private int numSimulations = 1000;
 
     private void Update()
     {
@@ -113,16 +114,7 @@ public class BowAction : BaseAction
         return "Bow";
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
-    {
-        Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
-
-        return new EnemyAIAction
-        {
-            gridPosition = gridPosition,
-            actionValue = 100 + Mathf.RoundToInt((1 - targetUnit.GetHealthNormalized()) * 100f),
-        };
-    }
+    
 
 
     public override List<GridPosition> GetValidActionGridPositionList()
@@ -160,6 +152,10 @@ public class BowAction : BaseAction
             {
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
+                if (maxShootDistance > 1 && ((x == 0 && z == 1) || (x == 0 && z == -1) 
+                    || (x == 1 && z == 0) || (x == -1 && z == 0))) {
+                    continue;
+                }
 
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
@@ -216,6 +212,50 @@ public class BowAction : BaseAction
     public int GetMaxShootDistance()
     {
         return maxShootDistance;
+    }
+
+    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    {
+        float totalScore = 0f;
+
+        for (int i = 0; i < numSimulations; i++)
+        {
+            totalScore += SimulateActionScore(new EnemyAIAction { gridPosition = gridPosition });
+        }
+
+        float averageScore = totalScore / numSimulations;
+
+        return new EnemyAIAction
+        {
+            gridPosition = gridPosition,
+            actionValue = averageScore
+        };
+    }
+
+    public override float SimulateActionScore(EnemyAIAction action)
+    {
+        GridPosition targetGridPosition = action.gridPosition;
+        Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(targetGridPosition);
+        if (targetUnit == null)
+        {
+            return 0f; // No hay un objetivo válido en esta posición
+        }
+
+        float score = 0f;
+
+        // Factor de distancia: favorece las posiciones más cercanas al objetivo
+        GridPosition unitGridPosition = unit.GetGridPosition();
+        int distance = GridPosition.Distance(unitGridPosition, targetGridPosition);
+        float distanceFactor = 1f / (1f + distance);
+        score += distanceFactor * 100f; // Ponderación de la distancia en la puntuación
+
+        // Factor de salud: favorece los objetivos con menor salud
+        float healthFactor = 1f - targetUnit.GetHealthNormalized();
+        score += healthFactor * 100f; // Ponderación de la salud en la puntuación
+
+        // Agrega aquí otros factores relevantes para la acción Bow
+
+        return score;
     }
 }
 

@@ -12,12 +12,14 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnAnyUnitDead;
 
     [SerializeField] private bool isEnemy;
-    
+    [SerializeField] private bool isRangedUnit;
 
     private GridPosition gridPosition;
     private BaseAction[] baseActions;
     private int actionPoints = ACTION_POINTS_MAX;
     private HealthSystem healthSystem;
+
+    public bool IsRangedUnit { get => isRangedUnit; set => isRangedUnit = value; }
 
     private void Awake()
     {
@@ -175,4 +177,8 @@ public class Unit : MonoBehaviour
         return healthSystem.GetHealthNormalized();
     }
 
+    internal int GetCurrentHealth()
+    {
+        return healthSystem.GetCurrentHealth();
+    }
 }

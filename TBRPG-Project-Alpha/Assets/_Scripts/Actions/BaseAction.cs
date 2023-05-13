@@ -107,18 +107,31 @@ public abstract class BaseAction : MonoBehaviour
     /// <returns></returns>
     public EnemyAIAction GetBestEnemyAIAction()
     {
-        List<EnemyAIAction> enemyAIActionList = new List<EnemyAIAction>();
-        List<GridPosition> validGridPositionList = GetValidActionGridPositionList();
 
-        foreach (GridPosition gridPosition in validGridPositionList)
+        int numSimulationsPerAction = 1000; // Ajusta este valor según la cantidad de simulaciones que deseas realizar por acción
+        List<EnemyAIAction> enemyAIActionList = new List<EnemyAIAction>();
+
+        List<GridPosition> validActionGridPositionList = GetValidActionGridPositionList();
+
+        foreach (GridPosition gridPosition in validActionGridPositionList)
         {
             EnemyAIAction enemyAIAction = GetEnemyAIAction(gridPosition);
+
+            // Simula la acción varias veces y calcula su resultado promedio
+            float totalScore = 0;
+            for (int i = 0; i < numSimulationsPerAction; i++)
+            {
+                float simulationScore = SimulateActionScore(enemyAIAction);
+                totalScore += simulationScore;
+            }
+            enemyAIAction.actionValue = (totalScore / numSimulationsPerAction);
+
             enemyAIActionList.Add(enemyAIAction);
         }
 
         if (enemyAIActionList.Count > 0)
         {
-            enemyAIActionList.Sort((EnemyAIAction a, EnemyAIAction b) => b.actionValue - a.actionValue);
+            enemyAIActionList.Sort((EnemyAIAction a, EnemyAIAction b) => b.actionValue.CompareTo(a.actionValue));
             return enemyAIActionList[0];
         }
         else
@@ -129,12 +142,42 @@ public abstract class BaseAction : MonoBehaviour
 
     }
 
+    private EnemyAIAction MonteCarloSimulation(List<GridPosition> validGridPositionList)
+    {
+        int numberOfSimulations = 1000; // El número de simulaciones para cada acción posible
+        EnemyAIAction bestAction = null;
+        float bestActionScore = float.MinValue;
+
+        foreach (GridPosition gridPosition in validGridPositionList)
+        {
+            EnemyAIAction action = GetEnemyAIAction(gridPosition);
+            float totalScore = 0;
+
+            for (int i = 0; i < numberOfSimulations; i++)
+            {
+                // Simula el resultado de la acción y obtén una puntuación
+                float score = SimulateActionScore(action);
+                totalScore += score;
+            }
+
+            float averageScore = totalScore / numberOfSimulations;
+
+            if (averageScore > bestActionScore)
+            {
+                bestActionScore = averageScore;
+                bestAction = action;
+            }
+        }
+
+        return bestAction;
+    }
+
+    public abstract float SimulateActionScore(EnemyAIAction action);
+
     /// <summary>
     /// 
     /// </summary>
     /// <param name="gridPosition"></param>
     /// <returns></returns>
     public abstract EnemyAIAction GetEnemyAIAction(GridPosition gridPosition);
-
-
 }

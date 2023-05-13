@@ -94,31 +94,23 @@ public class EnemyAI : MonoBehaviour
         EnemyAIAction bestEnemyAIAction = null;
         BaseAction bestBaseAction = null;
 
-
         foreach (BaseAction baseAction in enemyUnit.GetBaseActions())
         {
             if (!enemyUnit.CanSpendActionPointsToTakeAction(baseAction))
             {
-                //No puede realizar la accions
+                // No puede realizar la acción
                 continue;
             }
 
-            if (bestEnemyAIAction == null)
+            // Utiliza el algoritmo de Monte Carlo implementado en GetBestEnemyAIAction()
+            // para evaluar esta acción
+            EnemyAIAction testEnemyAIAction = baseAction.GetBestEnemyAIAction();
+
+            if (bestEnemyAIAction == null || (testEnemyAIAction != null && testEnemyAIAction.actionValue > bestEnemyAIAction.actionValue))
             {
-                bestEnemyAIAction = baseAction.GetBestEnemyAIAction();
+                bestEnemyAIAction = testEnemyAIAction;
                 bestBaseAction = baseAction;
             }
-            else
-            {
-                EnemyAIAction testEnemyAIAction = baseAction.GetBestEnemyAIAction();
-                if (testEnemyAIAction != null && testEnemyAIAction.actionValue > 
-                    bestEnemyAIAction.actionValue)
-                {
-                    bestEnemyAIAction = testEnemyAIAction;
-                    bestBaseAction = baseAction;
-                }
-            }
-            baseAction.GetBestEnemyAIAction();
         }
 
         if (bestEnemyAIAction != null && enemyUnit.TrySpendActionPointsToTakeAction(bestBaseAction))

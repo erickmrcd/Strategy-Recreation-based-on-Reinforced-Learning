@@ -3,6 +3,7 @@
 
 
 using System;
+using UnityEngine;
 
 public struct GridPosition : IEquatable<GridPosition>
 {
@@ -35,6 +36,11 @@ public struct GridPosition : IEquatable<GridPosition>
     public override string ToString()
     {
         return "x: "+x+"; z: "+z;
+    }
+
+    internal static int Distance(GridPosition a, GridPosition b)
+    {
+        return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.z - b.z);
     }
 
     public static bool operator ==(GridPosition a, GridPosition b)

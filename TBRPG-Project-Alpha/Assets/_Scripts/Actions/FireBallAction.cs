@@ -80,4 +80,8 @@ public class FireBallAction : BaseAction
         ActionComplete();
     }
 
+    public override float SimulateActionScore(EnemyAIAction action)
+    {
+        return 0;
+    }
 }

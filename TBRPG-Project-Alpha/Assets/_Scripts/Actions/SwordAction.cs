@@ -12,6 +12,7 @@ public class SwordAction : BaseAction
     public event EventHandler OnSwordActionCompleted;
 
     [SerializeField] private LayerMask obstaclesLayerMask;
+    [SerializeField] private int weaponDamage;
 
 
     private enum State
@@ -24,7 +25,7 @@ public class SwordAction : BaseAction
     private State state;
     private float stateTimer;
     private Unit targetUnit;
-
+    private int numSimulations = 1000;
 
     private void Update()
     {
@@ -61,7 +62,7 @@ public class SwordAction : BaseAction
                 state = State.SwingingSwordAfterHit;
                 float afterHitStateTime = 0.5f;
                 stateTimer = afterHitStateTime;
-                targetUnit.Damage(20);
+                targetUnit.Damage(weaponDamage);
                 OnAnySwordHit?.Invoke(this, EventArgs.Empty);
                 break;
             case State.SwingingSwordAfterHit:
@@ -77,16 +78,6 @@ public class SwordAction : BaseAction
         return "Sword";
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
-    {
-        Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
-
-        return new EnemyAIAction
-        {
-            gridPosition = gridPosition,
-            actionValue = 1,
-        };
-    }
 
     public int GetTargetCountAtGridPosition(GridPosition gridPosition)
     {
@@ -209,6 +200,41 @@ public class SwordAction : BaseAction
         return maxSwordDistance;
     }
 
+    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    {
+        float totalScore = 0f;
 
+        for (int i = 0; i < numSimulations; i++)
+        {
+            totalScore += SimulateActionScore(new EnemyAIAction { gridPosition = gridPosition });
+        }
 
+        float averageScore = totalScore / numSimulations;
+
+        return new EnemyAIAction
+        {
+            gridPosition = gridPosition,
+            actionValue = averageScore
+        };
+    }
+    public override float SimulateActionScore(EnemyAIAction action)
+    {
+        Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(action.gridPosition);
+        int distanceToTarget = GridPosition.Distance(unit.GetGridPosition(), targetUnit.GetGridPosition());
+
+        // Asignar una puntuación más alta si el objetivo tiene menos vida
+        float healthScore = -targetUnit.GetHealthNormalized();
+
+        // Asignar una puntuación más alta si el arma causa más daño
+        float damageScore = weaponDamage;
+
+        // Ponderar las puntuaciones (ajustar los pesos según sea necesario)
+    
+        float weightHealth = 1.0f;
+        float weightDamage = 0.5f;
+
+        float totalScore = weightHealth * healthScore + weightDamage * damageScore;
+
+        return totalScore;
+    }
 }

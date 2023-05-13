@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MoveAction : BaseAction
 {
@@ -15,6 +16,9 @@ public class MoveAction : BaseAction
 
     private List<Vector3> positionList;
     private int currentPositionIndex;
+    private int numSimulations = 1000;
+    private float weightDistance = 1.0f;
+    private float weightHealth = 0.5f;
 
     private void Update()
     {
@@ -30,7 +34,7 @@ public class MoveAction : BaseAction
 
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {
-           transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            transform.position += moveDirection * moveSpeed * Time.deltaTime;
         }
         else
         {
@@ -41,14 +45,14 @@ public class MoveAction : BaseAction
 
                 ActionComplete();
             }
-            
+
         }
-        
+
     }
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        List<GridPosition> pathGridPositionList = Pathfinding.Instance.FindPath(unit.GetGridPosition(), gridPosition,out int pathLength);
+        List<GridPosition> pathGridPositionList = Pathfinding.Instance.FindPath(unit.GetGridPosition(), gridPosition, out int pathLength);
 
         currentPositionIndex = 0;
 
@@ -63,7 +67,7 @@ public class MoveAction : BaseAction
         ActionStart(onActionComplete);
     }
 
- 
+
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
@@ -102,7 +106,7 @@ public class MoveAction : BaseAction
                     continue;
                 }
                 int pathfindingDistanceMultiplaer = 10;
-                if(Pathfinding.Instance.GetPathLength(unitGridPosition, testGridPosition) > maxMoveDistance * pathfindingDistanceMultiplaer)
+                if (Pathfinding.Instance.GetPathLength(unitGridPosition, testGridPosition) > maxMoveDistance * pathfindingDistanceMultiplaer)
                 {
                     continue;
                 }
@@ -121,13 +125,100 @@ public class MoveAction : BaseAction
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
+        float totalScore = 0f;
 
-            int targetCountAtGridPosition = unit.GetAction<BowAction>().GetTargetCountAtGridPosition(gridPosition);
+        for (int i = 0; i < numSimulations; i++)
+        {
+            totalScore += SimulateActionScore(new EnemyAIAction { gridPosition = gridPosition });
+        }
 
-            return new EnemyAIAction
-            {
-                gridPosition = gridPosition,
-                actionValue = targetCountAtGridPosition * 60,
-            };
+        float averageScore = totalScore / numSimulations;
+
+        return new EnemyAIAction
+        {
+            gridPosition = gridPosition,
+            actionValue = averageScore
+        };
     }
+
+
+
+    public override float SimulateActionScore(EnemyAIAction action)
+    {
+        GridPosition targetPosition = action.gridPosition;
+        int distanceToClosestEnemy = GetDistanceToClosestEnemy(targetPosition);
+        Unit closestEnemy = GetClosestEnemy(targetPosition);
+        float enemyHealthScore = -closestEnemy.GetCurrentHealth();
+
+        if (unit.IsRangedUnit)
+        {
+            // Si es una unidad de ataque a distancia, es mejor mantener cierta distancia de los enemigos
+            int preferredDistance = 2; // Establecer la distancia preferida para unidades de ataque a distancia
+            float distanceScore = -Mathf.Abs(preferredDistance - distanceToClosestEnemy);
+
+            // Ponderar las puntuaciones (ajustar los pesos según sea necesario)
+          
+
+            return weightDistance * distanceScore + weightHealth * enemyHealthScore;
+        }
+        else
+        {
+            // Si no es una unidad de ataque a distancia, es mejor estar cerca de los enemigos
+            float distanceScore = -distanceToClosestEnemy;
+
+            // Ponderar las puntuaciones (ajustar los pesos según sea necesario)
+            float weightDistance = 1.0f;
+            float weightHealth = 0.2f;
+
+            return weightDistance * distanceScore + weightHealth * enemyHealthScore;
+        }
+    }
+
+
+    private int GetDistanceToClosestEnemy(GridPosition position)
+    {
+        List<Unit> allUnits = UnitManager.Instance.GetUnitList();
+        int minDistance = int.MaxValue;
+
+        foreach (Unit otherUnit in allUnits)
+        {
+            if (otherUnit == unit || otherUnit.IsEnemy() == unit.IsEnemy())
+            {
+                continue; // Ignorar la unidad actual y las unidades del mismo equipo
+            }
+
+            int distance = GridPosition.Distance(position, otherUnit.GetGridPosition());
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+            }
+        }
+
+        return minDistance;
+    }
+
+    private Unit GetClosestEnemy(GridPosition targetPosition)
+    {
+        List<Unit> allUnits = UnitManager.Instance.GetUnitList();
+        int minDistance = int.MaxValue;
+        Unit closestEnemy = null;
+
+        foreach (Unit otherUnit in allUnits)
+        {
+            if (otherUnit == unit || otherUnit.IsEnemy() == unit.IsEnemy())
+            {
+                continue; // Ignorar la unidad actual y las unidades del mismo equipo
+            }
+
+            int distance = GridPosition.Distance(targetPosition, otherUnit.GetGridPosition());
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestEnemy = otherUnit;
+            }
+        }
+
+        return closestEnemy;
+    }
+
 }

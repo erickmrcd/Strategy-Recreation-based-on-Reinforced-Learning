@@ -208,4 +208,9 @@ public class ShootAction : BaseAction
     {
         return maxShootDistance;
     }
+
+    public override float SimulateActionScore(EnemyAIAction action)
+    {
+        return 0;
+    }
 }

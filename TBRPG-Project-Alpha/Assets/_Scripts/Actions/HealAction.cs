@@ -12,11 +12,11 @@ public class HealAction : BaseAction
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
-        int targetCountAtGridPosition = unit.GetAction<HealAction>().GetTargetCountAtGridPosition(gridPosition);
+        //int targetCountAtGridPosition = unit.GetAction<HealAction>().GetTargetCountAtGridPosition(gridPosition);
         return new EnemyAIAction
         {
             gridPosition = gridPosition,
-            actionValue = targetCountAtGridPosition,
+            actionValue = 0,
         };
     }
 
@@ -28,5 +28,10 @@ public class HealAction : BaseAction
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
         throw new NotImplementedException();
+    }
+
+    public override float SimulateActionScore(EnemyAIAction action)
+    {
+        return 0;
     }
 }
