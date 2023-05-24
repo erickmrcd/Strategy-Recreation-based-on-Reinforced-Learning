@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SwordAction : BaseAction
 {
@@ -12,7 +13,8 @@ public class SwordAction : BaseAction
     public event EventHandler OnSwordActionCompleted;
 
     [SerializeField] private LayerMask obstaclesLayerMask;
-    [SerializeField] private int weaponDamage;
+    [SerializeField] private int baseWeaponDamage;
+    [SerializeField] private int WeaponRangeDamage;
 
 
     private enum State
@@ -62,7 +64,7 @@ public class SwordAction : BaseAction
                 state = State.SwingingSwordAfterHit;
                 float afterHitStateTime = 0.5f;
                 stateTimer = afterHitStateTime;
-                targetUnit.Damage(weaponDamage);
+                targetUnit.Damage(Random.Range(1,WeaponRangeDamage+1)+baseWeaponDamage);
                 OnAnySwordHit?.Invoke(this, EventArgs.Empty);
                 break;
             case State.SwingingSwordAfterHit:
@@ -220,13 +222,12 @@ public class SwordAction : BaseAction
     public override float SimulateActionScore(EnemyAIAction action)
     {
         Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(action.gridPosition);
-        int distanceToTarget = GridPosition.Distance(unit.GetGridPosition(), targetUnit.GetGridPosition());
 
         // Asignar una puntuación más alta si el objetivo tiene menos vida
         float healthScore = -targetUnit.GetHealthNormalized();
 
         // Asignar una puntuación más alta si el arma causa más daño
-        float damageScore = weaponDamage;
+        float damageScore = Random.Range(1, WeaponRangeDamage + 1) + baseWeaponDamage;
 
         // Ponderar las puntuaciones (ajustar los pesos según sea necesario)
     
