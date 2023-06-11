@@ -102,6 +102,23 @@ public class GridSystemVisual : MonoBehaviour
             {
                 GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
 
+
+                if (range > 1 && Mathf.Abs(x) <= 1 && Mathf.Abs(z) <= 1)
+                {
+                    continue;
+                }
+
+                if (range > 2)
+                {
+                    int sum = Mathf.Abs(x) + Mathf.Abs(z);
+
+                    if (sum <= 1 || sum == 2 && (Mathf.Abs(x) == 2 || Mathf.Abs(z) == 2))
+                    {
+                        continue;
+                    }
+                }
+
+
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
@@ -138,21 +155,6 @@ public class GridSystemVisual : MonoBehaviour
             {
                 GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
 
-                if (range > 1)
-                {
-                    if (x == 0 && z== -1 || x == 0 && z == 0 || x == 0 && z == 1 )
-                    {
-                        continue;
-                    }
-                    if (x == 1 && z == -1 || x == 1 && z == 0 || x == 1 && z == 1)
-                    {
-                        continue;
-                    }
-                    if (x == -1 && z == -1 || x == -1 && z == 0 || x == -1 && z == 1)
-                    {
-                        continue;
-                    }
-                }
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
@@ -187,13 +189,13 @@ public class GridSystemVisual : MonoBehaviour
                 gridVisualType = GridVisualType.Red;
                 ShowGridPOsitionRange(selectedUnit.GetGridPosition(),shoot.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
-            case SwordAction swordAction:
+            case MeleeAction swordAction:
                 gridVisualType = GridVisualType.Red;
                 ShowGridPositionRangeSquare(selectedUnit.GetGridPosition(), swordAction.GetMaxSwordDistance(), GridVisualType.RedSoft);
                 break;
             case BowAction bowAction:
                 gridVisualType = GridVisualType.Red;
-                ShowGridPositionRangeSquare(selectedUnit.GetGridPosition(), bowAction.GetMaxShootDistance(), GridVisualType.RedSoft);
+                ShowGridPOsitionRange(selectedUnit.GetGridPosition(), bowAction.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
             default:
                 

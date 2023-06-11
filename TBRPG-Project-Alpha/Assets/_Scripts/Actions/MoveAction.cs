@@ -9,9 +9,9 @@ public class MoveAction : BaseAction
     public event EventHandler OnStartMoving;
     public event EventHandler OnStopMoving;
 
-    [SerializeField] private float rotateSpeed = 50f;
+    [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private float stoppingDistance = 0.1f;
+    [SerializeField] private float stoppingDistance = 0.001f;
     [SerializeField] private int maxMoveDistance = 4;
 
     private List<Vector3> positionList;
@@ -30,7 +30,10 @@ public class MoveAction : BaseAction
         Vector3 targetPosition = positionList[currentPositionIndex];
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
 
-        transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        if (moveDirection != Vector3.zero)
+        {
+            transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        }
 
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {
@@ -55,7 +58,6 @@ public class MoveAction : BaseAction
         List<GridPosition> pathGridPositionList = Pathfinding.Instance.FindPath(unit.GetGridPosition(), gridPosition, out int pathLength);
 
         currentPositionIndex = 0;
-
         positionList = new List<Vector3>();
 
         foreach (GridPosition pathGridPosition in pathGridPositionList)
@@ -221,4 +223,8 @@ public class MoveAction : BaseAction
         return closestEnemy;
     }
 
+    public override int GetActionPointCost()
+    {
+        return 1;
+    }
 }

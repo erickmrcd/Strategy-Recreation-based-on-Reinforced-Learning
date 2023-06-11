@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Unit : MonoBehaviour
 {
-    private const int ACTION_POINTS_MAX = 2;
+    private const int ACTION_POINTS_MAX = 5;
 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
@@ -13,6 +15,9 @@ public class Unit : MonoBehaviour
 
     [SerializeField] private bool isEnemy;
     [SerializeField] private bool isRangedUnit;
+    [SerializeField] private String unitName = "Jhon Doe";
+    [SerializeField] private int armorClass = 10;
+    [SerializeField] private Sprite characterPortrait;
 
     private GridPosition gridPosition;
     private BaseAction[] baseActions;
@@ -20,6 +25,7 @@ public class Unit : MonoBehaviour
     private HealthSystem healthSystem;
 
     public bool IsRangedUnit { get => isRangedUnit; set => isRangedUnit = value; }
+    public Sprite CharacterPortrait { get => characterPortrait; set => characterPortrait = value; }
 
     private void Awake()
     {
@@ -156,6 +162,10 @@ public class Unit : MonoBehaviour
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
 
+    public string GetUnitName()
+    {
+        return unitName;
+    }
 
     public int GetActionPoints()
     {
@@ -165,6 +175,11 @@ public class Unit : MonoBehaviour
     public bool IsEnemy()
     {
         return isEnemy;
+    }
+
+    public int AttackRoll()
+    {
+        return Random.Range(1, 21);
     }
 
     public void Damage(int damageAmount)
@@ -177,8 +192,20 @@ public class Unit : MonoBehaviour
         return healthSystem.GetHealthNormalized();
     }
 
-    internal int GetCurrentHealth()
+    public int GetCurrentHealth()
     {
         return healthSystem.GetCurrentHealth();
     }
+
+    public int GetArmorClass()
+    {
+        return armorClass;
+    }
+    public int GetCurrentMaxHealth()
+    {
+        return healthSystem.GetCurrentHealthMax();
+    }
+
+    
+
 }

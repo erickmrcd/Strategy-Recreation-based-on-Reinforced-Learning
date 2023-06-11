@@ -23,15 +23,6 @@ public class FireBallAction : BaseAction
         return "Fire ball";
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
-    {
-        return new EnemyAIAction
-        {
-            gridPosition = gridPosition,
-            actionValue = 0,
-        };
-
-    }
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
@@ -67,8 +58,8 @@ public class FireBallAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        Transform grenadeProjectileTransform = Instantiate(fireProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
-        FireBall fireBall = grenadeProjectileTransform.GetComponent<FireBall>();
+        Transform fireBallProjectileTransform = Instantiate(fireProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
+        FireBall fireBall = fireBallProjectileTransform.GetComponent<FireBall>();
         fireBall.Setup(gridPosition, OnFireBallBehaviourComplete);
 
         ActionStart(onActionComplete);
@@ -80,8 +71,63 @@ public class FireBallAction : BaseAction
         ActionComplete();
     }
 
+    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    {
+        int numberOfSimulations = 100; // número de simulaciones para realizar
+        EnemyAIAction bestAction = null;
+        float bestActionScore = float.MinValue;
+        List<GridPosition> validActionPositions = GetValidActionGridPositionList();
+
+        foreach (var actionPosition in validActionPositions)
+        {
+            EnemyAIAction action = new EnemyAIAction
+            {
+                gridPosition = actionPosition,
+                actionValue = 0,
+            };
+
+            float totalActionScore = 0;
+            for (int i = 0; i < numberOfSimulations; i++)
+            {
+                totalActionScore += SimulateActionScore(action);
+            }
+
+            float averageActionScore = totalActionScore / numberOfSimulations;
+            if (averageActionScore > bestActionScore)
+            {
+                bestActionScore = averageActionScore;
+                bestAction = action;
+            }
+        }
+
+        return bestAction;
+    }
+
     public override float SimulateActionScore(EnemyAIAction action)
     {
-        return 0;
+        float score = 0;
+        List<Unit> enemyUnitsInRadius = LevelGrid.Instance.GetUnitsInRadius(action.gridPosition, 4f, isEnemy: true);
+        List<Unit> alliedUnitsInRadius = LevelGrid.Instance.GetUnitsInRadius(action.gridPosition, 4f, isEnemy: false);
+
+        // Asumiendo que cada tirada de dado es independiente y uniformemente distribuida, 
+        // el valor esperado de una tirada de un dado de 6 caras es 3.5. Como hay 3 tiradas, el daño esperado es 10.5.
+        float expectedDamage = 10.5f * enemyUnitsInRadius.Count;
+
+        // Asigna una gran penalización si hay unidades aliadas en el radio.
+        float alliedPenalty = alliedUnitsInRadius.Count > 0 ? -1000f : 0;
+
+        // Asigna una penalización si la acción agotaría los puntos de acción del enemigo.
+        float actionPointPenalty = (unit.GetActionPoints() - GetActionPointCost() <= 0) ? -500f : 0;
+
+        score = expectedDamage + alliedPenalty + actionPointPenalty;
+
+        return score;
+    }
+
+
+
+    public override int GetActionPointCost()
+    {
+        return 5;
     }
 }

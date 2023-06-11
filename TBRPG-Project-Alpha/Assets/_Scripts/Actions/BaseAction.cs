@@ -62,10 +62,7 @@ public abstract class BaseAction : MonoBehaviour
     /// Devuelve el coste de la accion
     /// </summary>
     /// <returns>Int</returns>
-    public virtual int GetActionPointCost()
-    {
-        return 1;
-    }
+    public abstract int GetActionPointCost();
 
     /// <summary>
     /// 

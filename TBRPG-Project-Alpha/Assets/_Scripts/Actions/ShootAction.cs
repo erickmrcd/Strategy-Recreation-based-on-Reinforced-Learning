@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static BowAction;
+using Random = UnityEngine.Random;
 
 public class ShootAction : BaseAction
 {
@@ -26,7 +28,8 @@ public class ShootAction : BaseAction
     [SerializeField] private int maxShootDistance = 1;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
-    [SerializeField] private int unitWeaponDamage = 15;
+    [SerializeField] private int baseWeaponDamage = 0;
+    [SerializeField] private int WeaponRangeDamage = 0;
 
     private State state;
     private float totalShootAmount;
@@ -69,14 +72,21 @@ public class ShootAction : BaseAction
 
     private void Shoot()
     {
-        OnShoot?.Invoke(this, new OnShootEventArgs
+        
+        if (unit.AttackRoll() <= targetUnit.GetArmorClass())
         {
-            targetUnit = targetUnit,
-            shootingUnit = unit
-        });
+            OnShoot?.Invoke(this, new OnShootEventArgs
+            {
+                targetUnit = targetUnit,
+                shootingUnit = unit
+            });
 
-
-        targetUnit.Damage(unitWeaponDamage);
+            targetUnit.Damage(Random.Range(1, WeaponRangeDamage + 1) + baseWeaponDamage);
+        }
+        else
+        {
+            Debug.Log("Miss");
+        }
     }
 
     private void NextState()
@@ -138,7 +148,12 @@ public class ShootAction : BaseAction
             {
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
-
+               
+                if (maxShootDistance > 1 && ((x == 0 && z == 1) || (x == 0 && z == -1)
+                   || (x == 1 && z == 0) || (x == -1 && z == 0)))
+                {
+                    continue;
+                }
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
@@ -212,5 +227,10 @@ public class ShootAction : BaseAction
     public override float SimulateActionScore(EnemyAIAction action)
     {
         return 0;
+    }
+
+    public override int GetActionPointCost()
+    {
+        return 2;
     }
 }
