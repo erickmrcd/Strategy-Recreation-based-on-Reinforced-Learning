@@ -86,5 +86,27 @@ public class LevelGrid : MonoBehaviour
         return gridObject.GetUnit();
     }
 
+    public List<Unit> GetUnitsInRadius(GridPosition centerGridPosition, float radius, bool isEnemy)
+    {
+        List<Unit> unitsInRadius = new List<Unit>();
+
+        Vector3 centerVector3Position = new Vector3(centerGridPosition.x, 0, centerGridPosition.z);
+        // Consideramos todas las posiciones en el grid
+        foreach (Unit unit in UnitManager.Instance.GetUnitList())
+        {
+            GridPosition unitGridPosition = unit.GetGridPosition();
+            Vector3 unitVector3Position = new Vector3(unitGridPosition.x, 0, unitGridPosition.z);
+            // Calculamos la distancia entre la unidad y el centro de la esfera
+            float distance = Vector3.Distance(centerVector3Position, unitVector3Position);
+
+            // Verificamos si la unidad está en el radio y si es enemigo o aliado
+            if (distance <= radius && unit.IsEnemy() != isEnemy)
+            {
+                unitsInRadius.Add(unit);
+            }
+        }
+
+        return unitsInRadius;
+    }
 
 }

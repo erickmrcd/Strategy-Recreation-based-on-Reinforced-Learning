@@ -45,8 +45,13 @@ public class HealthSystem : MonoBehaviour
         return (float)( health) / healthMax;
     }
 
-    internal int GetCurrentHealth()
+    public int GetCurrentHealth()
     {
         return health;
     }
+    public int GetCurrentHealthMax()
+    {
+        return healthMax;
+    }
+
 }

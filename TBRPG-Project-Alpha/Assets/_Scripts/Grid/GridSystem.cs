@@ -78,4 +78,8 @@ public class GridSystem<TGridObject>
         return height;
     }
 
+    internal void SetGridObject(GridPosition gridPosition, GridObject copyGridObject)
+    {
+        throw new NotImplementedException();
+    }
 }

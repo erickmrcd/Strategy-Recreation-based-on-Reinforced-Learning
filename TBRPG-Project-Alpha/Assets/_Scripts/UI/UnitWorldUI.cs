@@ -10,6 +10,7 @@ public class UnitWorldUI : MonoBehaviour
     [SerializeField] private Unit unit;
     [SerializeField] private Image healtBarImage;
     [SerializeField] private HealthSystem healthSystem;
+    //[SerializeField] private TextMeshProUGUI unitNameText;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class UnitWorldUI : MonoBehaviour
         UpdateHealthBar();
         healthSystem.OnDamage += HealthSystem_OnDamage;
         Unit.OnAnyActionPointsChanged += Unit_OnAnyActionPointsChanged;
+        //unitNameText.text = unit.GetUnitName();
     }
 
 

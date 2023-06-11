@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BowAction : BaseAction
 {
@@ -25,10 +26,10 @@ public class BowAction : BaseAction
     [SerializeField] private int maxShootDistance = 1;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
-    [SerializeField] private int unitWeaponDamage = 100;
+    [SerializeField] private int baseWeaponDamage = 0;
+    [SerializeField] private int WeaponRangeDamage = 0;
 
     private State state;
-    private float totalShootAmount;
     private float stateTimer;
     private Unit targetUnit;
     private bool canShootAnArrow;
@@ -79,14 +80,21 @@ public class BowAction : BaseAction
 
     private void Shoot()
     {
-        OnBowShoot?.Invoke(this, new OnBowShootEventArgs
+        if (unit.AttackRoll() <= targetUnit.GetArmorClass())
         {
-            targetUnit = targetUnit,
-            shootingUnit = unit
-        });
+            OnBowShoot?.Invoke(this, new OnBowShootEventArgs
+            {
+                targetUnit = targetUnit,
+                shootingUnit = unit
+            });
 
+            targetUnit.Damage(Random.Range(1, WeaponRangeDamage + 1) + baseWeaponDamage);
+        }
+        else
+        {
+            Debug.Log("Miss");
+        }
 
-        targetUnit.Damage(unitWeaponDamage);
     }
 
     private void NextState()
@@ -152,10 +160,11 @@ public class BowAction : BaseAction
             {
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
-                if (maxShootDistance > 1 && ((x == 0 && z == 1) || (x == 0 && z == -1) 
-                    || (x == 1 && z == 0) || (x == -1 && z == 0))) {
+                if (maxShootDistance > 1 && (Mathf.Abs(x) + Mathf.Abs(z) == 1))
+                {
                     continue;
                 }
+
 
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
@@ -256,6 +265,11 @@ public class BowAction : BaseAction
         // Agrega aquí otros factores relevantes para la acción Bow
 
         return score;
+    }
+
+    public override int GetActionPointCost()
+    {
+        return 2;
     }
 }
 

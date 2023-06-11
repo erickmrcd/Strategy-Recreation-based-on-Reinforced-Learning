@@ -26,9 +26,17 @@ public class UnitAnimator : MonoBehaviour
 
         if (TryGetComponent<BowAction>(out BowAction bowAction))
         {
-            bowAction.OnAiming += BowAction_OnAiming;
             bowAction.OnBowShoot += BowAction_OnShoot; ;
         }
+        if(TryGetComponent<MeleeAction>(out MeleeAction swordAction))
+        {
+            swordAction.OnSwordActionStarted += SwordAction_OnSwordActionStarted;
+        }
+    }
+
+    private void SwordAction_OnSwordActionStarted(object sender, EventArgs e)
+    {
+        animator.SetTrigger("Shoot");
     }
 
     private void BowAction_OnAiming(object sender, EventArgs e)

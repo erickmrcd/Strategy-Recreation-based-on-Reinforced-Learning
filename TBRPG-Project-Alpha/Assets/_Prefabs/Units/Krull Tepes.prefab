@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 7721785861472628046}
   - component: {fileID: 5464662385718925257}
   - component: {fileID: 3300829031588847288}
-  - component: {fileID: 8269771522325168646}
+  - component: {fileID: 3618133502426610730}
+  - component: {fileID: 5784676601139896083}
+  - component: {fileID: 4212510335620174341}
   m_Layer: 7
   m_Name: Krull Tepes
   m_TagString: Untagged
@@ -32,8 +34,8 @@ Transform:
   m_GameObject: {fileID: 2711980112115036159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5920228607584088894}
   - {fileID: 5989688085629806665}
@@ -76,6 +78,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isRangedUnit: 0
+  unitName: Krull Tepes
+  armorClass: 10
+  characterPortrait: {fileID: 21300000, guid: 6fc5b51ddda7f9b49a0a2c471e2082b5, type: 3}
 --- !u!114 &890162831743238453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,8 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6eae509c77f4a488b4af0172e31705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollPrefab: {fileID: 0}
-  originalRootBone: {fileID: 0}
+  ragdollPrefab: {fileID: 2952270540176492430, guid: 59eba8ecf0e084343ace9753f1e96b09,
+    type: 3}
+  originalRootBone: {fileID: 5924112125471718228}
 --- !u!114 &5464662385718925257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,11 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2b5cd5553f5b74e930d51e958628de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 50
+  rotateSpeed: 10
   moveSpeed: 4
   stoppingDistance: 0.1
   maxMoveDistance: 8
---- !u!114 &8269771522325168646
+--- !u!114 &3618133502426610730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,14 +149,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 2711980112115036159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2588da31ef1ff4f93824f23b3ebe15, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa005b4437516d4a8f85a14c5f4061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  baseWeaponDamage: 5
-  WeaponRangeDamage: 6
+  baseWeaponDamage: 6
+  WeaponRangeDamage: 12
+--- !u!114 &5784676601139896083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2711980112115036159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887fd03969f86294c8e3afa3a45f4924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4212510335620174341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2711980112115036159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821febdee0b476c4fb81fac67834a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1565607585817695546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,6 +441,11 @@ PrefabInstance:
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: 5464662385718925257}
+    - target: {fileID: 2220058592928898096, guid: 9497f290fa3f6ab4795cdde2bfd310ec,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2775093326255600251, guid: 9497f290fa3f6ab4795cdde2bfd310ec,
         type: 3}
       propertyPath: m_Name
@@ -4144,6 +4179,12 @@ Transform:
 --- !u!4 &5920228607584088894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4140657405272054, guid: 31bf11ffc7128b24f83dc580b826a148,
+    type: 3}
+  m_PrefabInstance: {fileID: 5919512676762954952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5924112125471718228 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4778468503181212, guid: 31bf11ffc7128b24f83dc580b826a148,
     type: 3}
   m_PrefabInstance: {fileID: 5919512676762954952}
   m_PrefabAsset: {fileID: 0}
