@@ -22,22 +22,34 @@ public class UnitWorldUI : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void UpdateActionPointstext()
     {
         actionPointsText.text = unit.GetActionPoints().ToString();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void UpdateHealthBar()
     {
         healtBarImage.fillAmount = healthSystem.GetHealthNormalized();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Unit_OnAnyActionPointsChanged(object sender, System.EventArgs e)
     {
         UpdateActionPointstext();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void HealthSystem_OnDamage(object sender, System.EventArgs e)
     {
         UpdateHealthBar();

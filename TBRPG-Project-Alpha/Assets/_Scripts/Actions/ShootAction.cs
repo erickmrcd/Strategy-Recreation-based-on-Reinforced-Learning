@@ -70,6 +70,9 @@ public class ShootAction : BaseAction
 
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void Shoot()
     {
         
@@ -88,7 +91,9 @@ public class ShootAction : BaseAction
             Debug.Log("Miss");
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void NextState()
     {
         switch (state)
@@ -124,7 +129,11 @@ public class ShootAction : BaseAction
             actionValue = 100 + Mathf.RoundToInt((1 - targetUnit.GetHealthNormalized()) * 100f),
         };
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <returns></returns>
     public int GetTargetCountAtGridPosition(GridPosition gridPosition)
     {
         return GetValidActionGridPositionList(gridPosition).Count;
@@ -137,7 +146,11 @@ public class ShootAction : BaseAction
         return GetValidActionGridPositionList(unitGridPosition);
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="unitGridPosition"></param>
+    /// <returns></returns>
     private List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -213,12 +226,18 @@ public class ShootAction : BaseAction
 
         ActionStart(onActionComplete);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public Unit GetTargetUnit()
     {
         return targetUnit;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetMaxShootDistance()
     {
         return maxShootDistance;

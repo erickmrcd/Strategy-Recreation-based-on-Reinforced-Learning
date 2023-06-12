@@ -13,7 +13,10 @@ public class MouseWorld : MonoBehaviour
     {
         instance = this;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public static Vector3 GetPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

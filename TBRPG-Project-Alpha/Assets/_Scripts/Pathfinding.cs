@@ -32,7 +32,12 @@ public class Pathfinding : MonoBehaviour
 
         
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <param name="cellSize"></param>
     public void Setup(int width, int height, float cellSize)
     {
         this.width = width;
@@ -63,7 +68,13 @@ public class Pathfinding : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="startGridPosition"></param>
+    /// <param name="endGridPosition"></param>
+    /// <param name="pathLength"></param>
+    /// <returns></returns>
     public List<GridPosition> FindPath(GridPosition startGridPosition, GridPosition endGridPosition, out int pathLength)
     {
         List<PathNode> openList = new List<PathNode>();
@@ -140,7 +151,12 @@ public class Pathfinding : MonoBehaviour
         pathLength = 0;
         return null;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPositionA"></param>
+    /// <param name="gridPositionB"></param>
+    /// <returns></returns>
     public int CalculateDistance(GridPosition gridPositionA, GridPosition gridPositionB)
     {
         GridPosition gridPositionDistance = gridPositionA - gridPositionB;
@@ -149,7 +165,11 @@ public class Pathfinding : MonoBehaviour
         int remaining = Mathf.Abs(xDistance - zDistance);
         return MOVE_DIAGONAL_COST * Mathf.Min(xDistance, zDistance) + MOVE_STRAIGHT_COST * remaining;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pathNodeList"></param>
+    /// <returns></returns>
     private PathNode GetLowestFCostPathNode(List<PathNode> pathNodeList)
     {
         PathNode lowestFCostPathNode = pathNodeList[0];
@@ -162,12 +182,21 @@ public class Pathfinding : MonoBehaviour
         }
         return lowestFCostPathNode;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="z"></param>
+    /// <returns></returns>
     private PathNode GetNode(int x, int z)
     {
         return gridSystem.GetGridObject(new GridPosition(x, z));
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="currentNode"></param>
+    /// <returns></returns>
     private List<PathNode> GetNeighbourList(PathNode currentNode)
     {
         List<PathNode> neighbourList = new List<PathNode>();
@@ -220,7 +249,11 @@ public class Pathfinding : MonoBehaviour
 
         return neighbourList;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="endNode"></param>
+    /// <returns></returns>
     private List<GridPosition> CalculatePath(PathNode endNode)
     {
         List<PathNode> pathNodeList = new List<PathNode>();
@@ -242,17 +275,31 @@ public class Pathfinding : MonoBehaviour
 
         return gridPositionList;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <returns></returns>
     public bool IsWalkableGridPosition(GridPosition gridPosition)
     {
         return gridSystem.GetGridObject(gridPosition).IsWalkable();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="startGridPosition"></param>
+    /// <param name="endGridPosition"></param>
+    /// <returns></returns>
     public bool HasPath(GridPosition startGridPosition, GridPosition endGridPosition)
     {
         return FindPath(startGridPosition, endGridPosition, out int pathLength) != null;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="startGridPosition"></param>
+    /// <param name="endGridPosition"></param>
+    /// <returns></returns>
     public int GetPathLength(GridPosition startGridPosition, GridPosition endGridPosition)
     {
         FindPath(startGridPosition, endGridPosition, out int pathLength);

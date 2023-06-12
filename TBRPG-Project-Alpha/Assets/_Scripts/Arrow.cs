@@ -10,7 +10,10 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float moveSpeed = 0;
 
     private Vector3 targetPosition;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="targetPosition"></param>
     public void Setup(Vector3 targetPosition)
     {
         this.targetPosition = targetPosition;

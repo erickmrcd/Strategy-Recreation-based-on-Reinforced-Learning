@@ -32,7 +32,10 @@ public class Unit : MonoBehaviour
         healthSystem = GetComponent<HealthSystem>();
         baseActions = GetComponents<BaseAction>();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetWorldPosition()
     {
         return transform.position;
@@ -50,9 +53,9 @@ public class Unit : MonoBehaviour
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
 
     }
-
-    
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void Damage()
     {
         Debug.Log(transform + " damage!");
@@ -75,7 +78,11 @@ public class Unit : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public T GetAction<T>() where T : BaseAction
     {
         foreach (BaseAction baseAction in baseActions)
@@ -87,12 +94,18 @@ public class Unit : MonoBehaviour
         }
         return null;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public GridPosition GetGridPosition()
     {
         return gridPosition;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public BaseAction[] GetBaseActions()
     {
         return baseActions;
@@ -133,7 +146,10 @@ public class Unit : MonoBehaviour
             return false;
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="amount"></param>
     private void SpendActionPoints(int amount)
     {
         actionPoints -= amount;
@@ -141,7 +157,11 @@ public class Unit : MonoBehaviour
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnTurnChanged(object sender, EventArgs e)
     {
         if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
@@ -153,7 +173,11 @@ public class Unit : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
@@ -161,46 +185,74 @@ public class Unit : MonoBehaviour
 
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public string GetUnitName()
     {
         return unitName;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetActionPoints()
     {
         return actionPoints;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public bool IsEnemy()
     {
         return isEnemy;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int AttackRoll()
     {
         return Random.Range(1, 21);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="damageAmount"></param>
     public void Damage(int damageAmount)
     {
         healthSystem.Damage(damageAmount);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public float GetHealthNormalized()
     {
         return healthSystem.GetHealthNormalized();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetCurrentHealth()
     {
         return healthSystem.GetCurrentHealth();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetArmorClass()
     {
         return armorClass;
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetCurrentMaxHealth()
     {
         return healthSystem.GetCurrentHealthMax();

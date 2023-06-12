@@ -65,7 +65,9 @@ public class UnitActionSystem : MonoBehaviour
 
         HandleSelectedAction();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void HandleSelectedAction()
     {
         if (Input.GetMouseButtonDown(0))
@@ -89,19 +91,26 @@ public class UnitActionSystem : MonoBehaviour
 
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void SetBusy()
     {
         isBusy = true;
         OnBusyChanged?.Invoke(this, isBusy);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void ClearBusy()
     {
         isBusy = false;
         OnBusyChanged?.Invoke(this, isBusy);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     private bool TryHandleUnitSelection()
     {
         if (Input.GetMouseButtonDown(0))
@@ -131,12 +140,18 @@ public class UnitActionSystem : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public  BaseAction GetSelectedAction()
     {
         return selectedAction;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="unit"></param>
     private void SetSelectedUnit(Unit unit)
     {
         selectedUnit = unit;
@@ -149,14 +164,20 @@ public class UnitActionSystem : MonoBehaviour
         
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="baseAction"></param>
     public void SetSelectedAction(BaseAction baseAction)
     {
         selectedAction = baseAction;
 
         OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public Unit GetSelectedUnit()
     {
         return selectedUnit;

@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="name"></param>
     public void Play(string name)
     {
         SceneManager.LoadScene(name);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public void Exit()
     {
         Debug.Log("Salir...");

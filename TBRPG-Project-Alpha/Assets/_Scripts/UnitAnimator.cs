@@ -33,27 +33,47 @@ public class UnitAnimator : MonoBehaviour
             swordAction.OnSwordActionStarted += SwordAction_OnSwordActionStarted;
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void SwordAction_OnSwordActionStarted(object sender, EventArgs e)
     {
         animator.SetTrigger("Shoot");
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void BowAction_OnAiming(object sender, EventArgs e)
     {
         animator.SetTrigger("Shoot");
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void MoveAction_OnStartMoving(object sender, EventArgs e)
     {
         animator.SetBool("IsWalking", true);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void MoveAction_OnStopMoving(object sender, EventArgs e)
     {
         animator.SetBool("IsWalking", false);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ShootAction_OnShoot(object sender, ShootAction.OnShootEventArgs e)
     {
         animator.SetTrigger("Shoot");
@@ -69,7 +89,11 @@ public class UnitAnimator : MonoBehaviour
         //projectile.Setup(targetUnitShootAtPosition);
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void BowAction_OnShoot(object sender, BowAction.OnBowShootEventArgs e)
     {
        

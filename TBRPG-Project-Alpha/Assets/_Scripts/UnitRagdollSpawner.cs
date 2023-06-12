@@ -17,7 +17,11 @@ public class UnitRagdollSpawner : MonoBehaviour
 
         healthSystem.OnDead += HealthSystem_OnDead;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
         Transform ragdollTransform = Instantiate(ragdollPrefab, transform.position, transform.rotation);

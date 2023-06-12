@@ -64,12 +64,20 @@ public class GridSystemVisual : MonoBehaviour
         UnitActionSystem.Instance.OnSelectedActionChanged += Instance_OnSelectedActionChanged;
         LevelGrid.Instance.OnAnyUnitMoveGridPosition += Instance_OnAnyUnitMoveGridPosition;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnAnyUnitMoveGridPosition(object sender, System.EventArgs e)
     {
         UpdateGridVisual();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnSelectedActionChanged(object sender, System.EventArgs e)
     {
         UpdateGridVisual();
@@ -79,7 +87,9 @@ public class GridSystemVisual : MonoBehaviour
     {
         UpdateGridVisual();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void HideAllGridPosition()
     {
         for (int x = 0; x < LevelGrid.Instance.GetWidht(); x++)
@@ -90,7 +100,12 @@ public class GridSystemVisual : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <param name="range"></param>
+    /// <param name="gridVisualType"></param>
     private void ShowGridPOsitionRange(GridPosition gridPosition, int range, GridVisualType gridVisualType)
     {
 
@@ -136,7 +151,11 @@ public class GridSystemVisual : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPositionList"></param>
+    /// <param name="gridVisualType"></param>
     public void ShowGridPositionList(List<GridPosition> gridPositionList, GridVisualType gridVisualType)
     {
         foreach (GridPosition gridPosition in gridPositionList)
@@ -144,7 +163,12 @@ public class GridSystemVisual : MonoBehaviour
             gridSystemVisualSingleArray[gridPosition.x, gridPosition.z].Show(GetGridVisualTypeMaterial(gridVisualType));
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <param name="range"></param>
+    /// <param name="gridVisualType"></param>
     private void ShowGridPositionRangeSquare(GridPosition gridPosition, int range, GridVisualType gridVisualType)
     {
         List<GridPosition> gridPositionList = new List<GridPosition>();
@@ -167,7 +191,9 @@ public class GridSystemVisual : MonoBehaviour
         ShowGridPositionList(gridPositionList, gridVisualType);
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void UpdateGridVisual()
     {
         HideAllGridPosition();
@@ -205,7 +231,11 @@ public class GridSystemVisual : MonoBehaviour
         ShowGridPositionList(
             selectedAction.GetValidActionGridPositionList(), gridVisualType);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridVisualType"></param>
+    /// <returns></returns>
     private Material GetGridVisualTypeMaterial(GridVisualType gridVisualType)
     {
         foreach(GridVisualTypeMaterial gridVisualTypeMaterial in gridVisualTypeMaterialList)

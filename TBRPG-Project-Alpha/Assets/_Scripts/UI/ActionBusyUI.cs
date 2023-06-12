@@ -10,7 +10,11 @@ public class ActionBusyUI : MonoBehaviour
         gameObject.SetActive(false);
         UnitActionSystem.Instance.OnBusyChanged += Instance_OnBusyChanged;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="isBusy"></param>
     private void Instance_OnBusyChanged(object sender, bool isBusy)
     {
         if (isBusy)
@@ -22,12 +26,16 @@ public class ActionBusyUI : MonoBehaviour
             Hide();
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Show()
     {
         gameObject.SetActive(true);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Hide()
     {
         gameObject.SetActive(false);

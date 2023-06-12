@@ -72,12 +72,16 @@ public class BowAction : BaseAction
         }
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Aiming()
     {
         OnAiming?.Invoke(this, EventArgs.Empty);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Shoot()
     {
         if (unit.AttackRoll() <= targetUnit.GetArmorClass())
@@ -96,7 +100,9 @@ public class BowAction : BaseAction
         }
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void NextState()
     {
         switch (state)
@@ -144,12 +150,20 @@ public class BowAction : BaseAction
 
         ActionStart(onActionComplete);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <returns></returns>
     public int GetTargetCountAtGridPosition(GridPosition gridPosition)
     {
         return GetValidActionGridPositionList(gridPosition).Count;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="unitGridPosition"></param>
+    /// <returns></returns>
     private List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -212,12 +226,18 @@ public class BowAction : BaseAction
 
         return validGridPositionList;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public Unit GetTargetUnit()
     {
         return targetUnit;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetMaxShootDistance()
     {
         return maxShootDistance;

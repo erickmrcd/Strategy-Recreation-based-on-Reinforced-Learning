@@ -28,7 +28,7 @@ public class MeleeAction : BaseAction
     private float stateTimer;
     private Unit targetUnit;
     private int numSimulations = 1000;
-
+    
     private void Update()
     {
         if (!isActive)
@@ -55,7 +55,9 @@ public class MeleeAction : BaseAction
             NextState();
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void NextState()
     {
         switch (state)
@@ -90,12 +92,20 @@ public class MeleeAction : BaseAction
         return "Melee";
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <returns></returns>
     public int GetTargetCountAtGridPosition(GridPosition gridPosition)
     {
         return GetValidActionGridPositionList(gridPosition).Count;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="unitGridPosition"></param>
+    /// <returns></returns>
     private List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -206,7 +216,10 @@ public class MeleeAction : BaseAction
         ActionStart(onActionComplete);
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetMaxSwordDistance()
     {
         return maxSwordDistance;

@@ -31,7 +31,9 @@ public class UnitActionSystemUI : MonoBehaviour
         UpdateActionPoints();
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void CreateUnitActionButton()
     {
         foreach (Transform buttonTransform in actionButtonContainerTransform)
@@ -58,7 +60,9 @@ public class UnitActionSystemUI : MonoBehaviour
         
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void UpdateSelectedVisual()
     {
         foreach (ActionButtonUI actionButtonUI in actionButtonUIList)
@@ -66,7 +70,9 @@ public class UnitActionSystemUI : MonoBehaviour
             actionButtonUI.UpdateSelectedVisual();
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void UpdateActionPoints()
     {
         Unit selectedUnit = UnitActionSystem.Instance.GetSelectedUnit();
@@ -76,29 +82,49 @@ public class UnitActionSystemUI : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Unit_OnAnyActionPointsChanged(object sender, EventArgs e)
     {
         UpdateActionPoints();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnTurnChanged(object sender, EventArgs e)
     {
         UpdateActionPoints();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnActionStarted(object sender, EventArgs e)
     {
         UpdateActionPoints();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnSelectedUnitChanged(object sender, System.EventArgs e)
     {
         CreateUnitActionButton();
         UpdateSelectedVisual();
         UpdateActionPoints();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnSelectedActionChanged(object sender, EventArgs e)
     {
         UpdateSelectedVisual();

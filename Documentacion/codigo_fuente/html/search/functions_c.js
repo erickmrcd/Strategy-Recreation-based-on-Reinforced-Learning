@@ -4,7 +4,7 @@ var searchData=
   ['setbaseaction_1',['SetBaseAction',['../class_action_button_u_i.html#ae00c47153a644d9210c6e6f4295cabd4',1,'ActionButtonUI']]],
   ['setcamefrompathnode_2',['SetCameFromPathNode',['../class_path_node.html#acf870da7510e2cece9ad6c4295888e6d',1,'PathNode']]],
   ['setgcost_3',['SetGCost',['../class_path_node.html#a5716f72b88202c663728d00118a67ac1',1,'PathNode']]],
-  ['setgridobject_4',['SetGridObject',['../class_grid_debug_object.html#a5dda76b1cd95ca9ebcb02336fa724a20',1,'GridDebugObject.SetGridObject()'],['../class_pathfinding_grid_debug_object.html#a6fa53450fd8e2ff25d4c7d675dcbafca',1,'PathfindingGridDebugObject.SetGridObject()']]],
+  ['setgridobject_4',['SetGridObject',['../class_grid_debug_object.html#a5dda76b1cd95ca9ebcb02336fa724a20',1,'GridDebugObject.SetGridObject()'],['../class_grid_system.html#a3439b93ca1227e41d24577840b85663c',1,'GridSystem.SetGridObject()'],['../class_pathfinding_grid_debug_object.html#a6fa53450fd8e2ff25d4c7d675dcbafca',1,'PathfindingGridDebugObject.SetGridObject()']]],
   ['sethcost_5',['SetHCost',['../class_path_node.html#aa3d2b9855eef2a2b954bfee15f9ce2e3',1,'PathNode']]],
   ['setiswalkable_6',['SetIsWalkable',['../class_path_node.html#a74c296bdb0bec0b923ae266c786c70c4',1,'PathNode']]],
   ['setselectedaction_7',['SetSelectedAction',['../class_unit_action_system.html#a3f3360cf971c28186c03a5b1c2e684bd',1,'UnitActionSystem']]],

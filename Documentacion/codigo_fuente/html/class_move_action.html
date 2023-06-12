@@ -89,15 +89,19 @@ Diagrama de herencia de MoveAction</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 MÃ©todos pÃºblicos</h2></td></tr>
 <tr class="memitem:ad64fd44dd3dcf195dfeaf4ce5a02a33f"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_action.html#ad64fd44dd3dcf195dfeaf4ce5a02a33f">TakeAction</a> (<a class="el" href="struct_grid_position.html">GridPosition</a> gridPosition, Action <a class="el" href="class_base_action.html#aea9027870bb7315f76f6ebc194ad2eda">onActionComplete</a>)</td></tr>
+<tr class="memdesc:ad64fd44dd3dcf195dfeaf4ce5a02a33f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo implementado en cada accion que se llama cuando el jugador ejecuta una accion.  <br /></td></tr>
 <tr class="separator:ad64fd44dd3dcf195dfeaf4ce5a02a33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2981ee7e0802d57227ba88553f05e61"><td class="memItemLeft" align="right" valign="top">override List&lt; <a class="el" href="struct_grid_position.html">GridPosition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_action.html#ae2981ee7e0802d57227ba88553f05e61">GetValidActionGridPositionList</a> ()</td></tr>
+<tr class="memdesc:ae2981ee7e0802d57227ba88553f05e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene una lista de las casillas que son validas para ejecutar la acción.  <br /></td></tr>
 <tr class="separator:ae2981ee7e0802d57227ba88553f05e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a4bbe1e1e1fce4e375345cf67827d90"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_action.html#a2a4bbe1e1e1fce4e375345cf67827d90">GetActionName</a> ()</td></tr>
 <tr class="memdesc:a2a4bbe1e1e1fce4e375345cf67827d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the action name Este metodo devuelve el nombre de la acción.  <br /></td></tr>
 <tr class="separator:a2a4bbe1e1e1fce4e375345cf67827d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f6432046c6cf02c1582497431d7ebae"><td class="memItemLeft" align="right" valign="top">override <a class="el" href="class_enemy_a_i_action.html">EnemyAIAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_action.html#a1f6432046c6cf02c1582497431d7ebae">GetEnemyAIAction</a> (<a class="el" href="struct_grid_position.html">GridPosition</a> gridPosition)</td></tr>
+<tr class="memdesc:a1f6432046c6cf02c1582497431d7ebae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo que obtiene la acción de la IA.  <br /></td></tr>
 <tr class="separator:a1f6432046c6cf02c1582497431d7ebae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a350019031eec437f2225ea893ff4eac0"><td class="memItemLeft" align="right" valign="top">override float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_action.html#a350019031eec437f2225ea893ff4eac0">SimulateActionScore</a> (<a class="el" href="class_enemy_a_i_action.html">EnemyAIAction</a> action)</td></tr>
+<tr class="memdesc:a350019031eec437f2225ea893ff4eac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo abstracto para simular los diferentes resultados en una acción.  <br /></td></tr>
 <tr class="separator:a350019031eec437f2225ea893ff4eac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3725159d43c11289b467af085ec2afc"><td class="memItemLeft" align="right" valign="top">override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_action.html#ae3725159d43c11289b467af085ec2afc">GetActionPointCost</a> ()</td></tr>
 <tr class="memdesc:ae3725159d43c11289b467af085ec2afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el coste de la accion.  <br /></td></tr>
@@ -107,21 +111,28 @@ MÃ©todos pÃºblicos</h2></td></tr>
 <tr class="memdesc:ae1059ae4c729a8e5824f1b7acf2cbdda inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the action name Este metodo devuelve el nombre de la acción.  <br /></td></tr>
 <tr class="separator:ae1059ae4c729a8e5824f1b7acf2cbdda inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00b36c386b4dac5ef3b4d774e2672616 inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a00b36c386b4dac5ef3b4d774e2672616">TakeAction</a> (<a class="el" href="struct_grid_position.html">GridPosition</a> gridPosition, Action <a class="el" href="class_base_action.html#aea9027870bb7315f76f6ebc194ad2eda">onActionComplete</a>)</td></tr>
+<tr class="memdesc:a00b36c386b4dac5ef3b4d774e2672616 inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo implementado en cada accion que se llama cuando el jugador ejecuta una accion.  <br /></td></tr>
 <tr class="separator:a00b36c386b4dac5ef3b4d774e2672616 inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfb19a8aedc954d6f2ed6e7f733f49b inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a7cfb19a8aedc954d6f2ed6e7f733f49b">IsValidActionGridPosition</a> (<a class="el" href="struct_grid_position.html">GridPosition</a> gridPosition)</td></tr>
+<tr class="memdesc:a7cfb19a8aedc954d6f2ed6e7f733f49b inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve un verdadero o falso si la casilla se puede utilizar.  <br /></td></tr>
 <tr class="separator:a7cfb19a8aedc954d6f2ed6e7f733f49b inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90ad029ecded90de639fcf094b4a279a inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">abstract List&lt; <a class="el" href="struct_grid_position.html">GridPosition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a90ad029ecded90de639fcf094b4a279a">GetValidActionGridPositionList</a> ()</td></tr>
+<tr class="memdesc:a90ad029ecded90de639fcf094b4a279a inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene una lista de las casillas que son validas para ejecutar la acción.  <br /></td></tr>
 <tr class="separator:a90ad029ecded90de639fcf094b4a279a inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19352ad138b9aed490659d46c192bd6 inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">abstract int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#aa19352ad138b9aed490659d46c192bd6">GetActionPointCost</a> ()</td></tr>
 <tr class="memdesc:aa19352ad138b9aed490659d46c192bd6 inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el coste de la accion.  <br /></td></tr>
 <tr class="separator:aa19352ad138b9aed490659d46c192bd6 inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acec1d198eac3b4c31de5005a17e22632 inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#acec1d198eac3b4c31de5005a17e22632">GetUnit</a> ()</td></tr>
+<tr class="memdesc:acec1d198eac3b4c31de5005a17e22632 inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el componente unidad que contiene esta acción.  <br /></td></tr>
 <tr class="separator:acec1d198eac3b4c31de5005a17e22632 inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4093f5b34e0aef590861cca4597b7de inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_enemy_a_i_action.html">EnemyAIAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#ab4093f5b34e0aef590861cca4597b7de">GetBestEnemyAIAction</a> ()</td></tr>
+<tr class="memdesc:ab4093f5b34e0aef590861cca4597b7de inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo que se encarga de obtener las acciones a realizar por la IA contrincante usando el algoritmo de montercarlo.  <br /></td></tr>
 <tr class="separator:ab4093f5b34e0aef590861cca4597b7de inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7c76379343bda32470aab912020805c inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">abstract float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#ad7c76379343bda32470aab912020805c">SimulateActionScore</a> (<a class="el" href="class_enemy_a_i_action.html">EnemyAIAction</a> action)</td></tr>
+<tr class="memdesc:ad7c76379343bda32470aab912020805c inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo abstracto para simular los diferentes resultados en una acción.  <br /></td></tr>
 <tr class="separator:ad7c76379343bda32470aab912020805c inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15abb3471ef4352a307281cb88e105f7 inherit pub_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="class_enemy_a_i_action.html">EnemyAIAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a15abb3471ef4352a307281cb88e105f7">GetEnemyAIAction</a> (<a class="el" href="struct_grid_position.html">GridPosition</a> gridPosition)</td></tr>
+<tr class="memdesc:a15abb3471ef4352a307281cb88e105f7 inherit pub_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo que obtiene la acción de la IA.  <br /></td></tr>
 <tr class="separator:a15abb3471ef4352a307281cb88e105f7 inherit pub_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="events" name="events"></a>
@@ -142,8 +153,10 @@ Otros miembros heredados</h2></td></tr>
 <tr class="memitem:a16d4eba1b197769cc78a275f23bd8c63 inherit pro_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a16d4eba1b197769cc78a275f23bd8c63">Awake</a> ()</td></tr>
 <tr class="separator:a16d4eba1b197769cc78a275f23bd8c63 inherit pro_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3820f80b1d1064524d4d5bf0563a1447 inherit pro_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a3820f80b1d1064524d4d5bf0563a1447">ActionStart</a> (Action <a class="el" href="class_base_action.html#aea9027870bb7315f76f6ebc194ad2eda">onActionComplete</a>)</td></tr>
+<tr class="memdesc:a3820f80b1d1064524d4d5bf0563a1447 inherit pro_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo que se encarga de llamar al evento que inicia una acción.  <br /></td></tr>
 <tr class="separator:a3820f80b1d1064524d4d5bf0563a1447 inherit pro_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3447bafb2a0f3a7b65e48275afcd818e inherit pro_methods_class_base_action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#a3447bafb2a0f3a7b65e48275afcd818e">ActionComplete</a> ()</td></tr>
+<tr class="memdesc:a3447bafb2a0f3a7b65e48275afcd818e inherit pro_methods_class_base_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo que se encarga de avisar que se ha terminado la acción.  <br /></td></tr>
 <tr class="separator:a3447bafb2a0f3a7b65e48275afcd818e inherit pro_methods_class_base_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_base_action"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_base_action')"><img src="closed.png" alt="-"/>&#160;Atributos protegidos heredados de <a class="el" href="class_base_action.html">BaseAction</a></td></tr>
 <tr class="memitem:abfd5ebd13630a017e31a4f6cd720dace inherit pro_attribs_class_base_action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_action.html#abfd5ebd13630a017e31a4f6cd720dace">unit</a></td></tr>
@@ -237,13 +250,15 @@ Otros miembros heredados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Metodo que obtiene la acción de la IA. </p>
 <dl class="params"><dt>ParÃ¡metros</dt><dd>
   <table class="params">
     <tr><td class="paramname">gridPosition</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve la acción con un objetivo y un peso especifico</dd></dl>
 
 <p>Implementa <a class="el" href="class_base_action.html#a15abb3471ef4352a307281cb88e105f7">BaseAction</a>.</p>
 
@@ -271,7 +286,9 @@ Otros miembros heredados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
+
+<p>Obtiene una lista de las casillas que son validas para ejecutar la acción. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve una lista con las posiciones que son validas</dd></dl>
 
 <p>Implementa <a class="el" href="class_base_action.html#a90ad029ecded90de639fcf094b4a279a">BaseAction</a>.</p>
 
@@ -300,6 +317,15 @@ Otros miembros heredados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Metodo abstracto para simular los diferentes resultados en una acción. </p>
+<dl class="params"><dt>ParÃ¡metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>El peso de la acción a ejecutar</dd></dl>
 
 <p>Implementa <a class="el" href="class_base_action.html#ad7c76379343bda32470aab912020805c">BaseAction</a>.</p>
 
@@ -338,6 +364,8 @@ Otros miembros heredados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Metodo implementado en cada accion que se llama cuando el jugador ejecuta una accion. </p>
 <dl class="params"><dt>ParÃ¡metros</dt><dd>
   <table class="params">
     <tr><td class="paramname">gridPosition</td><td></td></tr>

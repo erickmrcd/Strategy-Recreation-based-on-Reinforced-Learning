@@ -17,12 +17,18 @@ public class SelectedUnitUI : MonoBehaviour
         UnitActionSystem.Instance.OnSelectedUnitChanged += Instance_OnSelectedUnitChanged;
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Instance_OnSelectedUnitChanged(object sender, EventArgs e)
     {
         CreateCharacterPortrait();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void CreateCharacterPortrait()
     {
         foreach (Transform portrait in characterPortraitContainerTransform)

@@ -41,7 +41,9 @@ public class GameManager : MonoBehaviour
         CheckForVictoryOrDefeat(); 
         
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void CheckForVictoryOrDefeat()
     {
         if (IAWin())
@@ -53,7 +55,10 @@ public class GameManager : MonoBehaviour
             OnPlayerVictory?.Invoke(this,EventArgs.Empty);
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     private bool IAWin()
     {
         if (playerUnitList.Count == 0)
@@ -63,7 +68,10 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     private bool PlayerWin()
     {
         if (enemyUnitList.Count == 0)

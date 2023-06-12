@@ -176,7 +176,11 @@ public class MoveAction : BaseAction
         }
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="position"></param>
+    /// <returns></returns>
     private int GetDistanceToClosestEnemy(GridPosition position)
     {
         List<Unit> allUnits = UnitManager.Instance.GetUnitList();
@@ -198,7 +202,11 @@ public class MoveAction : BaseAction
 
         return minDistance;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="targetPosition"></param>
+    /// <returns></returns>
     private Unit GetClosestEnemy(GridPosition targetPosition)
     {
         List<Unit> allUnits = UnitManager.Instance.GetUnitList();

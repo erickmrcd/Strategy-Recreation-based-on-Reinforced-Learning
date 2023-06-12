@@ -31,7 +31,7 @@ public abstract class BaseAction : MonoBehaviour
     public abstract string GetActionName();
     
     /// <summary>
-    /// 
+    /// Metodo implementado en cada accion que se llama cuando el jugador ejecuta una accion
     /// 
     /// </summary>
     /// <param name="gridPosition"></param>
@@ -40,10 +40,10 @@ public abstract class BaseAction : MonoBehaviour
 
     /// <summary>
     /// 
-    /// 
+    /// Devuelve un verdadero o falso si la casilla se puede utilizar
     /// </summary>
     /// <param name="gridPosition"></param>
-    /// <returns></returns>
+    /// <returns>True o falso dependiendo si la casilla es valida</returns>
     public virtual bool IsValidActionGridPosition(GridPosition gridPosition)
     {
         List<GridPosition> validGridPositionList = GetValidActionGridPositionList();
@@ -51,22 +51,19 @@ public abstract class BaseAction : MonoBehaviour
     }
 
     /// <summary>
-    /// 
-    /// 
+    /// Obtiene una lista de las casillas que son validas para ejecutar la acción
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Devuelve una lista con las posiciones que son validas</returns>
     public abstract List<GridPosition> GetValidActionGridPositionList();
 
     /// <summary>
-    /// 
     /// Devuelve el coste de la accion
     /// </summary>
     /// <returns>Int</returns>
     public abstract int GetActionPointCost();
 
     /// <summary>
-    /// 
-    /// 
+    /// Metodo que se encarga de llamar al evento que inicia una acción
     /// </summary>
     /// <param name="onActionComplete"></param>
     protected void ActionStart(Action onActionComplete)
@@ -79,7 +76,7 @@ public abstract class BaseAction : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Metodo que se encarga de avisar que se ha terminado la acción
     /// </summary>
     protected void ActionComplete()
     {
@@ -90,18 +87,18 @@ public abstract class BaseAction : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Obtiene el componente unidad que contiene esta acción
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Devuelve la unidad seleccionada que contiene las acciones</returns>
     public Unit GetUnit()
     {
         return unit;
     }
 
     /// <summary>
-    /// 
+    /// Metodo que se encarga de obtener las acciones a realizar por la IA contrincante usando el algoritmo de montercarlo
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Acción a ejecutar por la IA</returns>
     public EnemyAIAction GetBestEnemyAIAction()
     {
 
@@ -139,42 +136,17 @@ public abstract class BaseAction : MonoBehaviour
 
     }
 
-    private EnemyAIAction MonteCarloSimulation(List<GridPosition> validGridPositionList)
-    {
-        int numberOfSimulations = 1000; // El número de simulaciones para cada acción posible
-        EnemyAIAction bestAction = null;
-        float bestActionScore = float.MinValue;
-
-        foreach (GridPosition gridPosition in validGridPositionList)
-        {
-            EnemyAIAction action = GetEnemyAIAction(gridPosition);
-            float totalScore = 0;
-
-            for (int i = 0; i < numberOfSimulations; i++)
-            {
-                // Simula el resultado de la acción y obtén una puntuación
-                float score = SimulateActionScore(action);
-                totalScore += score;
-            }
-
-            float averageScore = totalScore / numberOfSimulations;
-
-            if (averageScore > bestActionScore)
-            {
-                bestActionScore = averageScore;
-                bestAction = action;
-            }
-        }
-
-        return bestAction;
-    }
-
+    /// <summary>
+    /// Metodo abstracto para simular los diferentes resultados en una acción
+    /// </summary>
+    /// <param name="action"></param>
+    /// <returns>El peso de la acción a ejecutar</returns>
     public abstract float SimulateActionScore(EnemyAIAction action);
 
     /// <summary>
-    /// 
+    /// Metodo que obtiene la acción de la IA
     /// </summary>
     /// <param name="gridPosition"></param>
-    /// <returns></returns>
+    /// <returns>Devuelve la acción con un objetivo y un peso especifico</returns>
     public abstract EnemyAIAction GetEnemyAIAction(GridPosition gridPosition);
 }

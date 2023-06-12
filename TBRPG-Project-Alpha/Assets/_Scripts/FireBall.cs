@@ -16,6 +16,9 @@ public class FireBall : MonoBehaviour
     private Vector3 positionXZ;
     private float damageRadius = 4f;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public float DamageRadius { get => damageRadius; set => damageRadius = value; }
 
     private void Update()
@@ -54,14 +57,21 @@ public class FireBall : MonoBehaviour
             OnFireBallBehaviourComplete();
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     private int RollDice()
     {
         // Esto generará un número aleatorio entre 1 y 6
         return UnityEngine.Random.Range(1, 7);
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="targetGridPosition"></param>
+    /// <param name="onFireBallBehaviourComplete"></param>
     public void Setup(GridPosition targetGridPosition, Action onFireBallBehaviourComplete)
     {
         this.OnFireBallBehaviourComplete = onFireBallBehaviourComplete;

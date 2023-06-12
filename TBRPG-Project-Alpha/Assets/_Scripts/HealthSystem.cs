@@ -15,7 +15,10 @@ public class HealthSystem : MonoBehaviour
     {
         healthMax = health;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="damageAmount"></param>
     public void Damage(int damageAmount)
     {
         health -= damageAmount;
@@ -34,21 +37,33 @@ public class HealthSystem : MonoBehaviour
 
         Debug.Log(health);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Die()
     {
         OnDead?.Invoke(this,EventArgs.Empty);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public float GetHealthNormalized()
     {
         return (float)( health) / healthMax;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetCurrentHealth()
     {
         return health;
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetCurrentHealthMax()
     {
         return healthMax;

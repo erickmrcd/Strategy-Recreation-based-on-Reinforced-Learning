@@ -1,15 +1,18 @@
-
-
-
-
 using System;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public struct GridPosition : IEquatable<GridPosition>
 {
     public int x;
     public int z;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="z"></param>
     public GridPosition(int x, int z)
     {
         this.x = x;
@@ -22,7 +25,11 @@ public struct GridPosition : IEquatable<GridPosition>
                x == position.x &&
                z == position.z;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
     public bool Equals(GridPosition other)
     {
         return this == other;
@@ -37,27 +44,52 @@ public struct GridPosition : IEquatable<GridPosition>
     {
         return "x: "+x+"; z: "+z;
     }
-
-    internal static int Distance(GridPosition a, GridPosition b)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public static int Distance(GridPosition a, GridPosition b)
     {
         return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.z - b.z);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     public static bool operator ==(GridPosition a, GridPosition b)
     {
         return a.x == b.x && a.z == b.z;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     public static bool operator !=(GridPosition a, GridPosition b)
     {
         return !(a==b);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     public static GridPosition operator +(GridPosition a, GridPosition b)
     {
         return new GridPosition(a.x + b.x, a.z + b.z);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     public static GridPosition operator -(GridPosition a, GridPosition b)
     {
         return new GridPosition(a.x - b.x, a.z - b.z);

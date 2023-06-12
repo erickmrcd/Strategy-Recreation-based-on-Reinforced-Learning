@@ -8,7 +8,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Transform bulletHitVfxPrefab;
 
     private Vector3 targetPosition;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="targetPosition"></param>
     public void Setup(Vector3 targetPosition)
     {
         this.targetPosition = targetPosition;

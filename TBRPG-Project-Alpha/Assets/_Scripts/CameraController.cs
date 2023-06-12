@@ -32,7 +32,9 @@ public class CameraController : MonoBehaviour
         HandleZoom();
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void HandleZoom()
     {
         targetFollowOffset = cinemachineTransposer.m_FollowOffset;
@@ -52,7 +54,9 @@ public class CameraController : MonoBehaviour
         cinemachineTransposer.m_FollowOffset =
             Vector3.Lerp(cinemachineTransposer.m_FollowOffset, targetFollowOffset, Time.deltaTime * zoomSpeed);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void HandleRotation()
     {
         Vector3 rotationVector = new Vector3(0, 0, 0);
@@ -68,7 +72,9 @@ public class CameraController : MonoBehaviour
 
         transform.eulerAngles += rotationVector * rotationSpeed * Time.deltaTime;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void HandleMovement()
     {
         Vector3 inputMoveDir = new Vector3(0, 0, 0);

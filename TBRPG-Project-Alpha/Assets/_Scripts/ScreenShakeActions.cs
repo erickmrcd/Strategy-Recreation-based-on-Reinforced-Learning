@@ -9,7 +9,11 @@ public class ScreenShakeActions : MonoBehaviour
     {
         FireBall.OnAnyFireBallExploded += FireBall_OnAnyFireBallExploded; 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FireBall_OnAnyFireBallExploded(object sender, System.EventArgs e)
     {
         ScreenShake.Instance.Shake(5f);

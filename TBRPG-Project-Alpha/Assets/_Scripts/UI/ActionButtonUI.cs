@@ -11,7 +11,10 @@ public class ActionButtonUI : MonoBehaviour
     [SerializeField] private GameObject selectedGameObject;
 
     private BaseAction baseAction;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="baseAction"></param>
     public void SetBaseAction(BaseAction baseAction)
     {
         this.baseAction = baseAction;
@@ -23,7 +26,9 @@ public class ActionButtonUI : MonoBehaviour
             UnitActionSystem.Instance.SetSelectedAction(baseAction);
         });
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void UpdateSelectedVisual()
     {
         BaseAction selectedBaseAction = UnitActionSystem.Instance.GetSelectedAction();

@@ -36,7 +36,11 @@ public class UnitManager : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Unit_OnAnyUnitSpawned(object sender, System.EventArgs e)
     {
         Unit unit = sender as Unit;
@@ -53,7 +57,11 @@ public class UnitManager : MonoBehaviour
             friendlyUnitList.Add(unit);
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Unit_OnAnyUnitDead(object sender, System.EventArgs e)
     {
         Unit unit = sender as Unit;
@@ -71,17 +79,26 @@ public class UnitManager : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public List<Unit> GetUnitList()
     {
         return unitList;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public List<Unit> GetFriendlyUnitList()
     {
         return friendlyUnitList;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public List<Unit> GetEnemyUnitList()
     {
         return enemyUnitList;
