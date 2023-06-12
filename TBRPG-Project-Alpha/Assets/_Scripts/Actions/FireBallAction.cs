@@ -130,6 +130,6 @@ public class FireBallAction : BaseAction
 
     public override int GetActionPointCost()
     {
-        return 5;
+        return 4;
     }
 }
