@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridSystem<TGridObject>
@@ -16,7 +14,7 @@ public class GridSystem<TGridObject>
     /// <param name="height"></param>
     /// <param name="cellsize"></param>
     /// <param name="createGridObject"></param>
-    public GridSystem(int width, int height, float cellsize,Func<GridSystem<TGridObject>,GridPosition,TGridObject> createGridObject)
+    public GridSystem(int width, int height, float cellsize, Func<GridSystem<TGridObject>, GridPosition, TGridObject> createGridObject)
     {
         this.height = height;
         this.width = width;
@@ -29,9 +27,9 @@ public class GridSystem<TGridObject>
             for (int z = 0; z < height; z++)
             {
                 GridPosition gridPosition = new GridPosition(x, z);
-                gridObjectsArray[x,z] = createGridObject(this, gridPosition);
+                gridObjectsArray[x, z] = createGridObject(this, gridPosition);
             }
-        } 
+        }
     }
     /// <summary>
     /// 
@@ -40,7 +38,7 @@ public class GridSystem<TGridObject>
     /// <returns></returns>
     public Vector3 GetWorldPosition(GridPosition gridPosition)
     {
-        return new Vector3(gridPosition.x, 0, gridPosition.z) *cellsize;
+        return new Vector3(gridPosition.x, 0, gridPosition.z) * cellsize;
     }
     /// <summary>
     /// 

@@ -1,8 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+/// <summary>
+/// The move action.
+/// </summary>
 
 public class MoveAction : BaseAction
 {
@@ -20,6 +21,9 @@ public class MoveAction : BaseAction
     private float weightDistance = 1.0f;
     private float weightHealth = 0.5f;
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
         if (!isActive)
@@ -53,6 +57,11 @@ public class MoveAction : BaseAction
 
     }
 
+    /// <summary>
+    /// Takes the action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <param name="onActionComplete">The on action complete.</param>
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
         List<GridPosition> pathGridPositionList = Pathfinding.Instance.FindPath(unit.GetGridPosition(), gridPosition, out int pathLength);
@@ -71,6 +80,10 @@ public class MoveAction : BaseAction
 
 
 
+    /// <summary>
+    /// Gets the valid action grid position list.
+    /// </summary>
+    /// <returns>A list of GridPositions.</returns>
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -120,11 +133,20 @@ public class MoveAction : BaseAction
         return validGridPositionList;
     }
 
+    /// <summary>
+    /// Gets the action name.
+    /// </summary>
+    /// <returns>A string.</returns>
     public override string GetActionName()
     {
         return "Move";
     }
 
+    /// <summary>
+    /// Gets the enemy a i action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <returns>An EnemyAIAction.</returns>
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         float totalScore = 0f;
@@ -145,6 +167,11 @@ public class MoveAction : BaseAction
 
 
 
+    /// <summary>
+    /// Simulates the action score.
+    /// </summary>
+    /// <param name="action">The action.</param>
+    /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
         GridPosition targetPosition = action.gridPosition;
@@ -159,7 +186,7 @@ public class MoveAction : BaseAction
             float distanceScore = -Mathf.Abs(preferredDistance - distanceToClosestEnemy);
 
             // Ponderar las puntuaciones (ajustar los pesos según sea necesario)
-          
+
 
             return weightDistance * distanceScore + weightHealth * enemyHealthScore;
         }
@@ -231,8 +258,12 @@ public class MoveAction : BaseAction
         return closestEnemy;
     }
 
+    /// <summary>
+    /// Gets the action point cost.
+    /// </summary>
+    /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
-        return 1;
+        return 2;
     }
 }

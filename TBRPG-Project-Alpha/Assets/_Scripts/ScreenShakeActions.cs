@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScreenShakeActions : MonoBehaviour
@@ -7,7 +5,7 @@ public class ScreenShakeActions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FireBall.OnAnyFireBallExploded += FireBall_OnAnyFireBallExploded; 
+        FireBall.OnAnyFireBallExploded += FireBall_OnAnyFireBallExploded;
     }
     /// <summary>
     /// 

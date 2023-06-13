@@ -1,11 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
+/// <summary>
+/// The camera controller.
+/// </summary>
 
 public class CameraController : MonoBehaviour
 {
+    /// <summary>
+    /// The m i n_ f o l l o w_ y_ o f f s e t.
+    /// </summary>
     private const float MIN_FOLLOW_Y_OFFSET = 2f;
+    /// <summary>
+    /// The m a x_ f o l l o w_ y_ o f f s e t.
+    /// </summary>
     private const float MAX_FOLLOW_Y_OFFSET = 12f;
 
     [SerializeField] private float moveSpeed = 5f;
@@ -24,7 +31,9 @@ public class CameraController : MonoBehaviour
         targetFollowOffset = cinemachineTransposer.m_FollowOffset;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     private void Update()
     {
         HandleMovement();

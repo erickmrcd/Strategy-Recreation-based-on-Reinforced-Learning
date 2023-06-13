@@ -1,10 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The enemy a i.
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
+    /// <summary>
+    /// The state.
+    /// </summary>
     private enum State
     {
         WaitingForEnemyTurn,
@@ -15,16 +19,25 @@ public class EnemyAI : MonoBehaviour
     private State state;
     private float timer;
 
+    /// <summary>
+    /// Awakes the.
+    /// </summary>
     private void Awake()
     {
         state = State.WaitingForEnemyTurn;
     }
 
+    /// <summary>
+    /// Starts the.
+    /// </summary>
     private void Start()
     {
         TurnSystem.Instance.OnTurnChanged += Instance_OnTurnChanged;
     }
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
         if (TurnSystem.Instance.IsPlayerTurn())
@@ -40,7 +53,7 @@ public class EnemyAI : MonoBehaviour
                 timer -= Time.deltaTime;
                 if (timer <= 0f)
                 {
-                    
+
                     if (TryTakeEnemyAIAction(SetStateTakingTurn))
                     {
                         state = State.Busy;
@@ -50,22 +63,30 @@ public class EnemyAI : MonoBehaviour
                         //No more enemy can take actions
                         TurnSystem.Instance.nextTurn();
                     }
-                    
+
                 }
                 break;
             case State.Busy:
                 break;
         }
 
-        
+
     }
 
+    /// <summary>
+    /// Sets the state taking turn.
+    /// </summary>
     private void SetStateTakingTurn()
     {
         timer = 0.5f;
         state = State.TakingTurn;
     }
 
+    /// <summary>
+    /// Instance_S the on turn changed.
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The e.</param>
     private void Instance_OnTurnChanged(object sender, System.EventArgs e)
     {
         if (!TurnSystem.Instance.IsPlayerTurn())
@@ -73,9 +94,14 @@ public class EnemyAI : MonoBehaviour
             state = State.TakingTurn;
             timer = 2f;
         }
-        
+
     }
 
+    /// <summary>
+    /// Tries the take enemy a i action.
+    /// </summary>
+    /// <param name="onEnemyAIActionComplete">The on enemy a i action complete.</param>
+    /// <returns>A bool.</returns>
     private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
     {
 
@@ -89,6 +115,12 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Tries the take enemy a i action.
+    /// </summary>
+    /// <param name="enemyUnit">The enemy unit.</param>
+    /// <param name="onEnemyAIActionComplete">The on enemy a i action complete.</param>
+    /// <returns>A bool.</returns>
     private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
     {
         EnemyAIAction bestEnemyAIAction = null;

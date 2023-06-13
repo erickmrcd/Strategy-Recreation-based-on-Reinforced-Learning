@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Unit : MonoBehaviour
@@ -24,7 +21,13 @@ public class Unit : MonoBehaviour
     private int actionPoints = ACTION_POINTS_MAX;
     private HealthSystem healthSystem;
 
+    /// <summary>
+    /// Gets or sets a value indicating whether ranged is unit.
+    /// </summary>
     public bool IsRangedUnit { get => isRangedUnit; set => isRangedUnit = value; }
+    /// <summary>
+    /// Gets or sets the character portrait.
+    /// </summary>
     public Sprite CharacterPortrait { get => characterPortrait; set => characterPortrait = value; }
 
     private void Awake()
@@ -63,7 +66,7 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        
+
 
         GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         if (newGridPosition != gridPosition)
@@ -171,7 +174,7 @@ public class Unit : MonoBehaviour
 
             OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
         }
-        
+
     }
     /// <summary>
     /// 
@@ -258,6 +261,6 @@ public class Unit : MonoBehaviour
         return healthSystem.GetCurrentHealthMax();
     }
 
-    
+
 
 }

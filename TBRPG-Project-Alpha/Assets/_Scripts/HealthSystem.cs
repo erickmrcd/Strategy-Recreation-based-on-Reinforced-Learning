@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
@@ -28,7 +26,7 @@ public class HealthSystem : MonoBehaviour
             health = 0;
         }
 
-        OnDamage?.Invoke(this,EventArgs.Empty);
+        OnDamage?.Invoke(this, EventArgs.Empty);
 
         if (health == 0)
         {
@@ -42,7 +40,7 @@ public class HealthSystem : MonoBehaviour
     /// </summary>
     private void Die()
     {
-        OnDead?.Invoke(this,EventArgs.Empty);
+        OnDead?.Invoke(this, EventArgs.Empty);
     }
     /// <summary>
     /// 
@@ -50,7 +48,7 @@ public class HealthSystem : MonoBehaviour
     /// <returns></returns>
     public float GetHealthNormalized()
     {
-        return (float)( health) / healthMax;
+        return (float)(health) / healthMax;
     }
     /// <summary>
     /// 

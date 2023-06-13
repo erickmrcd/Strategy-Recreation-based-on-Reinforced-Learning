@@ -1,8 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The fire ball action.
+/// </summary>
 public class FireBallAction : BaseAction
 {
 
@@ -18,12 +20,20 @@ public class FireBallAction : BaseAction
         }
     }
 
+    /// <summary>
+    /// Gets the action name.
+    /// </summary>
+    /// <returns>A string.</returns>
     public override string GetActionName()
     {
         return "Fire ball";
     }
 
 
+    /// <summary>
+    /// Gets the valid action grid position list.
+    /// </summary>
+    /// <returns>A list of GridPositions.</returns>
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -56,6 +66,11 @@ public class FireBallAction : BaseAction
 
     }
 
+    /// <summary>
+    /// Takes the action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <param name="onActionComplete">The on action complete.</param>
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
         Transform fireBallProjectileTransform = Instantiate(fireProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
@@ -73,6 +88,11 @@ public class FireBallAction : BaseAction
         ActionComplete();
     }
 
+    /// <summary>
+    /// Gets the enemy a i action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <returns>An EnemyAIAction.</returns>
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         int numberOfSimulations = 100; // número de simulaciones para realizar
@@ -105,6 +125,11 @@ public class FireBallAction : BaseAction
         return bestAction;
     }
 
+    /// <summary>
+    /// Simulates the action score.
+    /// </summary>
+    /// <param name="action">The action.</param>
+    /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
         float score = 0;
@@ -119,17 +144,19 @@ public class FireBallAction : BaseAction
         float alliedPenalty = alliedUnitsInRadius.Count > 0 ? -1000f : 0;
 
         // Asigna una penalización si la acción agotaría los puntos de acción del enemigo.
-        float actionPointPenalty = (unit.GetActionPoints() - GetActionPointCost() <= 0) ? -500f : 0;
+        float actionPointPenalty = (unit.GetActionPoints() - GetActionPointCost() <= 0) ? -10f : 0;
 
-        score = expectedDamage + alliedPenalty + actionPointPenalty;
+        score = expectedDamage + alliedPenalty;
 
         return score;
     }
 
-
-
+    /// <summary>
+    /// Gets the action point cost.
+    /// </summary>
+    /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
-        return 4;
+        return 5;
     }
 }

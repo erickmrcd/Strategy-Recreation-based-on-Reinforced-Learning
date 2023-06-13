@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,7 +44,7 @@ public class GridSystemVisual : MonoBehaviour
     private void Start()
     {
         gridSystemVisualSingleArray = new GridSystemVisualSingle[
-            LevelGrid.Instance.GetWidht(), 
+            LevelGrid.Instance.GetWidht(),
             LevelGrid.Instance.GetHeight()
         ];
 
@@ -54,7 +53,7 @@ public class GridSystemVisual : MonoBehaviour
             for (int z = 0; z < LevelGrid.Instance.GetHeight(); z++)
             {
                 GridPosition gridPosition = new GridPosition(x, z);
-                Transform gridSystemVisualSingleTransfom = 
+                Transform gridSystemVisualSingleTransfom =
                     Instantiate(gridSystemVisualPrefab, LevelGrid.Instance.GetWorldPosition(gridPosition), Quaternion.identity);
 
                 gridSystemVisualSingleArray[x, z] = gridSystemVisualSingleTransfom.GetComponent<GridSystemVisualSingle>();
@@ -96,7 +95,7 @@ public class GridSystemVisual : MonoBehaviour
         {
             for (int z = 0; z < LevelGrid.Instance.GetHeight(); z++)
             {
-              gridSystemVisualSingleArray[x, z].Hide();
+                gridSystemVisualSingleArray[x, z].Hide();
             }
         }
     }
@@ -213,7 +212,7 @@ public class GridSystemVisual : MonoBehaviour
                 break;
             case ShootAction shoot:
                 gridVisualType = GridVisualType.Red;
-                ShowGridPOsitionRange(selectedUnit.GetGridPosition(),shoot.GetMaxShootDistance(), GridVisualType.RedSoft);
+                ShowGridPOsitionRange(selectedUnit.GetGridPosition(), shoot.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
             case MeleeAction swordAction:
                 gridVisualType = GridVisualType.Red;
@@ -224,12 +223,12 @@ public class GridSystemVisual : MonoBehaviour
                 ShowGridPOsitionRange(selectedUnit.GetGridPosition(), bowAction.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
             default:
-                
+
                 break;
         }
-        if(selectedAction != null)
-        ShowGridPositionList(
-            selectedAction.GetValidActionGridPositionList(), gridVisualType);
+        if (selectedAction != null)
+            ShowGridPositionList(
+                selectedAction.GetValidActionGridPositionList(), gridVisualType);
     }
     /// <summary>
     /// 
@@ -238,13 +237,13 @@ public class GridSystemVisual : MonoBehaviour
     /// <returns></returns>
     private Material GetGridVisualTypeMaterial(GridVisualType gridVisualType)
     {
-        foreach(GridVisualTypeMaterial gridVisualTypeMaterial in gridVisualTypeMaterialList)
+        foreach (GridVisualTypeMaterial gridVisualTypeMaterial in gridVisualTypeMaterialList)
         {
             if (gridVisualTypeMaterial.gridVisualType == gridVisualType)
             {
                 return gridVisualTypeMaterial.material;
             }
-            
+
         }
         return null;
     }

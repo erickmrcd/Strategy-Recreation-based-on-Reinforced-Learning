@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitAnimator : MonoBehaviour
@@ -28,7 +26,7 @@ public class UnitAnimator : MonoBehaviour
         {
             bowAction.OnBowShoot += BowAction_OnShoot; ;
         }
-        if(TryGetComponent<MeleeAction>(out MeleeAction swordAction))
+        if (TryGetComponent<MeleeAction>(out MeleeAction swordAction))
         {
             swordAction.OnSwordActionStarted += SwordAction_OnSwordActionStarted;
         }
@@ -96,10 +94,10 @@ public class UnitAnimator : MonoBehaviour
     /// <param name="e"></param>
     private void BowAction_OnShoot(object sender, BowAction.OnBowShootEventArgs e)
     {
-       
+
 
         //animator.SetTrigger("Shoot");
-        
+
         Transform bulletProjectileTransform = Instantiate(proyectilePrefab, shootPointTransform.position, Quaternion.Euler(90f, shootPointTransform.rotation.y, shootPointTransform.rotation.z));
 
         Arrow projectile = bulletProjectileTransform.GetComponent<Arrow>();

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,7 +44,7 @@ public class LevelGrid : MonoBehaviour
     /// <param name="unit"></param>
     public void AddUnitAtGridPosition(GridPosition gridPosition, Unit unit)
     {
-        GridObject gridObject =  gridSystem.GetGridObject(gridPosition);
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
         gridObject.AddUnit(unit);
     }
     /// <summary>
@@ -53,7 +52,7 @@ public class LevelGrid : MonoBehaviour
     /// </summary>
     /// <param name="gridPosition"></param>
     /// <returns></returns>
-    public List<Unit> GetUnitListAtGridPosition(GridPosition gridPosition )
+    public List<Unit> GetUnitListAtGridPosition(GridPosition gridPosition)
     {
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
         return gridObject.GetUnitList();
@@ -74,9 +73,9 @@ public class LevelGrid : MonoBehaviour
     /// <param name="unit"></param>
     /// <param name="lastGridPosition"></param>
     /// <param name="targetGridPosition"></param>
-    public void UnitMovedGridpPosition(Unit unit,GridPosition lastGridPosition, GridPosition targetGridPosition)
+    public void UnitMovedGridpPosition(Unit unit, GridPosition lastGridPosition, GridPosition targetGridPosition)
     {
-        RemoveUnitAtGridPosition(lastGridPosition,unit);
+        RemoveUnitAtGridPosition(lastGridPosition, unit);
         AddUnitAtGridPosition(targetGridPosition, unit);
 
         OnAnyUnitMoveGridPosition?.Invoke(this, EventArgs.Empty);

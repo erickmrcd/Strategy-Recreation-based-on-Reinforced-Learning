@@ -1,9 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// The heal action.
+/// </summary>
 public class HealAction : BaseAction
 {
     public event EventHandler OnHealActionStarted;
@@ -15,17 +16,28 @@ public class HealAction : BaseAction
     private int numSimulations = 1000;
     private int maxHealthDistance = 1;
 
+    /// <summary>
+    /// The state.
+    /// </summary>
     private enum State
     {
         Casting,
         LaunchSpell,
     }
 
+    /// <summary>
+    /// Gets the action name.
+    /// </summary>
+    /// <returns>A string.</returns>
     public override string GetActionName()
     {
         return "Healing";
     }
 
+    /// <summary>
+    /// Gets the valid action grid position list.
+    /// </summary>
+    /// <returns>A list of GridPositions.</returns>
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -65,6 +77,11 @@ public class HealAction : BaseAction
         return validGridPositionList;
     }
 
+    /// <summary>
+    /// Takes the action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <param name="onActionComplete">The on action complete.</param>
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
         state = State.Casting;
@@ -77,6 +94,9 @@ public class HealAction : BaseAction
         }
     }
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
         switch (state)
@@ -98,6 +118,11 @@ public class HealAction : BaseAction
         }
     }
 
+    /// <summary>
+    /// Gets the enemy a i action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <returns>An EnemyAIAction.</returns>
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         List<EnemyAIAction> possibleActions = new List<EnemyAIAction>();
@@ -150,6 +175,11 @@ public class HealAction : BaseAction
         return bestAction;
     }
 
+    /// <summary>
+    /// Simulates the action score.
+    /// </summary>
+    /// <param name="action">The action.</param>
+    /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
         Unit target = LevelGrid.Instance.GetUnitAtGridPosition(action.gridPosition);
@@ -166,6 +196,10 @@ public class HealAction : BaseAction
         return healedHealth - currentHealth;
     }
 
+    /// <summary>
+    /// Gets the action point cost.
+    /// </summary>
+    /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
         return 2;

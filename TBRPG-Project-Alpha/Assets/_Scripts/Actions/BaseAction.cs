@@ -1,8 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The base action.
+/// </summary>
 public abstract class BaseAction : MonoBehaviour
 {
 
@@ -14,8 +16,9 @@ public abstract class BaseAction : MonoBehaviour
     protected bool isActive;
     protected Action onActionComplete;
 
+
     /// <summary>
-    /// 
+    /// Awakes the.
     /// </summary>
     protected virtual void Awake()
     {
@@ -29,7 +32,7 @@ public abstract class BaseAction : MonoBehaviour
     /// </summary>
     /// <returns>String</returns>
     public abstract string GetActionName();
-    
+
     /// <summary>
     /// Metodo implementado en cada accion que se llama cuando el jugador ejecuta una accion
     /// 
