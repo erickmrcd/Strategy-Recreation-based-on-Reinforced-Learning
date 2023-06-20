@@ -19,6 +19,9 @@ public class FireBall : MonoBehaviour
     /// </summary>
     public float DamageRadius { get => damageRadius; set => damageRadius = value; }
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
         Vector3 moveDir = (targetPosition - positionXZ).normalized;

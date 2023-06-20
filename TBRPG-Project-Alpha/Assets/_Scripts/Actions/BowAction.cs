@@ -316,8 +316,6 @@ public class BowAction : BaseAction
         float healthFactor = 1f - targetUnit.GetHealthNormalized();
         score += healthFactor * 100f; // Ponderación de la salud en la puntuación
 
-        // Agrega aquí otros factores relevantes para la acción Bow
-
         return score;
     }
 

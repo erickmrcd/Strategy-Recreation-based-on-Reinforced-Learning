@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using UnityEngine;
 /// <summary>
 /// The camera controller.
@@ -9,11 +10,11 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// The m i n_ f o l l o w_ y_ o f f s e t.
     /// </summary>
-    private const float MIN_FOLLOW_Y_OFFSET = 2f;
+    private const float MIN_FOLLOW_Y_OFFSET = 4f;
     /// <summary>
     /// The m a x_ f o l l o w_ y_ o f f s e t.
     /// </summary>
-    private const float MAX_FOLLOW_Y_OFFSET = 12f;
+    private const float MAX_FOLLOW_Y_OFFSET = 10f;
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 100f;
@@ -24,9 +25,12 @@ public class CameraController : MonoBehaviour
     private Vector3 targetFollowOffset;
     private CinemachineTransposer cinemachineTransposer;
 
-
+    /// <summary>
+    /// Starts the.
+    /// </summary>
     private void Start()
     {
+     
         cinemachineTransposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
         targetFollowOffset = cinemachineTransposer.m_FollowOffset;
     }
@@ -36,13 +40,17 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+
         HandleMovement();
         HandleRotation();
         HandleZoom();
 
     }
+
+
+
     /// <summary>
-    /// 
+    /// Handles the zoom.
     /// </summary>
     private void HandleZoom()
     {
@@ -63,8 +71,10 @@ public class CameraController : MonoBehaviour
         cinemachineTransposer.m_FollowOffset =
             Vector3.Lerp(cinemachineTransposer.m_FollowOffset, targetFollowOffset, Time.deltaTime * zoomSpeed);
     }
+
+
     /// <summary>
-    /// 
+    /// Handles the rotation.
     /// </summary>
     private void HandleRotation()
     {
@@ -81,8 +91,10 @@ public class CameraController : MonoBehaviour
 
         transform.eulerAngles += rotationVector * rotationSpeed * Time.deltaTime;
     }
+
+
     /// <summary>
-    /// 
+    /// Handles the movement.
     /// </summary>
     private void HandleMovement()
     {

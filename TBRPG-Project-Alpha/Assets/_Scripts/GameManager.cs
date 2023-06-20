@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private List<Unit> enemyUnitList;
     public event EventHandler OnPlayerVictory;
     public event EventHandler OnPlayerDefeat;
+    public event EventHandler OnGamePause;
 
     /// <summary>
     /// Awakes the.
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
 
         CheckForVictoryOrDefeat();
-
+        Pause();
     }
     /// <summary>
     /// 
@@ -95,6 +96,15 @@ public class GameManager : MonoBehaviour
         }
         return false;
 
+    }
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnGamePause?.Invoke(this, EventArgs.Empty);
+
+        };
     }
 
 }

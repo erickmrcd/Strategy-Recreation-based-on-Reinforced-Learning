@@ -111,7 +111,7 @@ public class HealAction : BaseAction
 
             case State.LaunchSpell:
                 // Assumes a healing value of 25
-                targetUnit.Damage(-25);
+                //targetUnit.Damage(-25);
                 OnHealActionCompleted?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
                 break;
