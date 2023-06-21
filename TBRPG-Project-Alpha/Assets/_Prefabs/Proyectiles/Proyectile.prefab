@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650c0c9502549b54283bbde3fb861ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailRenderer: {fileID: 0}
+  trailRenderer: {fileID: 3962828839642883352}
   bulletHitVfxPrefab: {fileID: 0}
 --- !u!1001 &604258053830516452
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 3962828838085447354}
     m_Modifications:
     - target: {fileID: 4511492656134290418, guid: 3d412bfbe7a255c4c95ec46a7ec9b9cd,
@@ -116,11 +116,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d412bfbe7a255c4c95ec46a7ec9b9cd, type: 3}
 --- !u!4 &3962828839642883351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4511492656134290419, guid: 3d412bfbe7a255c4c95ec46a7ec9b9cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 604258053830516452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &3962828839642883352 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 4511492656134290428, guid: 3d412bfbe7a255c4c95ec46a7ec9b9cd,
     type: 3}
   m_PrefabInstance: {fileID: 604258053830516452}
   m_PrefabAsset: {fileID: 0}

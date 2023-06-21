@@ -1,18 +1,21 @@
 using System;
 using UnityEngine;
+/// <summary>
+/// The health system.
+/// </summary>
 
 public class HealthSystem : MonoBehaviour
 {
     public event EventHandler OnDead;
     public event EventHandler OnDamage;
 
-    [SerializeField] private int health = 100;
+    [SerializeField]private int health = 30;
     private int healthMax;
 
-    private void Awake()
-    {
-        healthMax = health;
-    }
+    //private void Start()
+    //{
+    //    healthMax = health;
+    //}
     /// <summary>
     /// 
     /// </summary>
@@ -33,7 +36,7 @@ public class HealthSystem : MonoBehaviour
             Die();
         }
 
-        Debug.Log(health);
+        Debug.Log(health); 
     }
     /// <summary>
     /// 
@@ -65,6 +68,16 @@ public class HealthSystem : MonoBehaviour
     public int GetCurrentHealthMax()
     {
         return healthMax;
+    }
+
+    /// <summary>
+    /// Sets the health.
+    /// </summary>
+    /// <param name="health">The health.</param>
+    public void SetHealth(int health)
+    {
+        this.health = health;
+        this.healthMax = health;
     }
 
 }

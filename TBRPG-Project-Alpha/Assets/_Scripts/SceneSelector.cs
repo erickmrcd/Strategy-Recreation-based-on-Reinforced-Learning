@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/// <summary>
+/// The scene selector.
+/// </summary>
 
 public class SceneSelector : MonoBehaviour
 {
@@ -10,5 +13,13 @@ public class SceneSelector : MonoBehaviour
     public void SelectScene(string name)
     {
         SceneManager.LoadScene(name);
+    }
+
+    /// <summary>
+    /// Resets the scene.
+    /// </summary>
+    public void ResetScene()
+    {
+          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

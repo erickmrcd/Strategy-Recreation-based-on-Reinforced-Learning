@@ -73,12 +73,12 @@ public class MeleeAction : BaseAction
             case State.SwingingSwordBeforeHit:
 
 
-                if (unit.AttackRoll() <= targetUnit.GetArmorClass())
+                if ((unit.AttackRoll() + unit.UnitStats.DamageModifier) <= targetUnit.GetArmorClass())
                 {
                     state = State.SwingingSwordAfterHit;
                     float afterHitStateTime = 0.5f;
                     stateTimer = afterHitStateTime;
-                    targetUnit.Damage(Random.Range(1, WeaponRangeDamage + 1) + baseWeaponDamage);
+                    targetUnit.Damage((Random.Range(1, WeaponRangeDamage + 1) + baseWeaponDamage));
                     OnAnySwordHit?.Invoke(this, EventArgs.Empty);
                 }
                 else
@@ -261,7 +261,7 @@ public class MeleeAction : BaseAction
         }
 
         float averageScore = totalScore / numSimulations;
-
+        Debug.Log("melee score: " + averageScore);
         return new EnemyAIAction
         {
             gridPosition = gridPosition,

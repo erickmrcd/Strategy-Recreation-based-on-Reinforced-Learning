@@ -10,6 +10,7 @@ public class MoveAction : BaseAction
     public event EventHandler OnStartMoving;
     public event EventHandler OnStopMoving;
 
+
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float stoppingDistance = 0.001f;
@@ -157,7 +158,7 @@ public class MoveAction : BaseAction
         }
 
         float averageScore = totalScore / numSimulations;
-
+        Debug.Log("move score: " + averageScore);
         return new EnemyAIAction
         {
             gridPosition = gridPosition,

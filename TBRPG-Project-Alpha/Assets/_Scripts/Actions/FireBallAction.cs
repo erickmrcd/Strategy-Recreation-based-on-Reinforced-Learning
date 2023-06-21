@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// The fire ball action.
@@ -51,6 +53,10 @@ public class FireBallAction : BaseAction
                 {
                     continue;
                 }
+                if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition))
+                {
+                    continue;
+                }
 
                 int testDistance = Mathf.Abs(x) + Mathf.Abs(z);
                 if (testDistance > maxThrowDistance)
@@ -95,34 +101,20 @@ public class FireBallAction : BaseAction
     /// <returns>An EnemyAIAction.</returns>
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
-        int numberOfSimulations = 100; // número de simulaciones para realizar
-        EnemyAIAction bestAction = null;
-        float bestActionScore = float.MinValue;
-        List<GridPosition> validActionPositions = GetValidActionGridPositionList();
-
-        foreach (var actionPosition in validActionPositions)
+        float totalScore = 0f;
+        int numSimulations = 1000;
+        for (int i = 0; i < numSimulations; i++)
         {
-            EnemyAIAction action = new EnemyAIAction
-            {
-                gridPosition = actionPosition,
-                actionValue = 0,
-            };
-
-            float totalActionScore = 0;
-            for (int i = 0; i < numberOfSimulations; i++)
-            {
-                totalActionScore += SimulateActionScore(action);
-            }
-
-            float averageActionScore = totalActionScore / numberOfSimulations;
-            if (averageActionScore > bestActionScore)
-            {
-                bestActionScore = averageActionScore;
-                bestAction = action;
-            }
+            totalScore += SimulateActionScore(new EnemyAIAction { gridPosition = gridPosition });
         }
 
-        return bestAction;
+        float averageScore = totalScore / numSimulations;
+        Debug.Log("Fireball score: " + averageScore);
+        return new EnemyAIAction
+        {
+            gridPosition = gridPosition,
+            actionValue = averageScore
+        };
     }
 
     /// <summary>
@@ -132,22 +124,24 @@ public class FireBallAction : BaseAction
     /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
-        float score = 0;
-        List<Unit> enemyUnitsInRadius = LevelGrid.Instance.GetUnitsInRadius(action.gridPosition, 4f, isEnemy: true);
-        List<Unit> alliedUnitsInRadius = LevelGrid.Instance.GetUnitsInRadius(action.gridPosition, 4f, isEnemy: false);
+        GridPosition targetGridPosition = action.gridPosition;
+        Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(targetGridPosition);
+        if (targetUnit == null)
+        {
+            return -1000f; // No hay un objetivo válido en esta posición
+        }
 
-        // Asumiendo que cada tirada de dado es independiente y uniformemente distribuida, 
-        // el valor esperado de una tirada de un dado de 6 caras es 3.5. Como hay 3 tiradas, el daño esperado es 10.5.
-        float expectedDamage = 10.5f * enemyUnitsInRadius.Count;
+        float score = 0f;
 
-        // Asigna una gran penalización si hay unidades aliadas en el radio.
-        float alliedPenalty = alliedUnitsInRadius.Count > 0 ? -1000f : 0;
+        // Factor de distancia: favorece las posiciones más cercanas al objetivo
+        GridPosition unitGridPosition = unit.GetGridPosition();
+        int distance = GridPosition.Distance(unitGridPosition, targetGridPosition);
+        score += distance <= maxThrowDistance-2 ? -100f : (1f / (1f + distance))*100f; // Penalización por estar demasiado cerca
 
-        // Asigna una penalización si la acción agotaría los puntos de acción del enemigo.
-        float actionPointPenalty = (unit.GetActionPoints() - GetActionPointCost() <= 0) ? -10f : 0;
-
-        score = expectedDamage + alliedPenalty;
-
+        // Factor de salud: favorece los objetivos con menor salud
+        float healthFactor = 1f - targetUnit.GetHealthNormalized();
+        score += healthFactor * 100f; // Ponderación de la salud en la puntuación
+        
         return score;
     }
 

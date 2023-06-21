@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaseAction" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQAAAoAAgAAAAAEAAABgAQAAAABAUgAAIAAQAEEA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\BaseAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BowAction" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIUAAAFAAIAABgRABACAAAhAQAAAABBEABAIAARAEEA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\BowAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FireBallAction" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAAAAAAAEAAAAAAAYAAAABAAAAAoAAQAEAA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\FireBallAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealAction" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAAAAABAAAAAAAAAQAAAAJBEAAAIAAUAEAA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\HealAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractAction" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAAAAAAAAAAAAgAAQAAAABAAAAAIAAQAEIA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\InteractAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeleeAction" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAEEAIBAAgRAAEAAAAgQQAAAABBEAAAYAAQAEAA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\MeleeAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoveAction" Collapsed="true">
+    <Position X="12.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIYAAABAEAAAIAAAAIAAAAIBRAAAADBAABAIAAYAEAA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\MoveAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootAction" Collapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAFAQIAABgRABAAAAAhAQAEABBAEAAAIAAQAEEA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\ShootAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpinAction" Collapsed="true">
+    <Position X="17" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAQAAAAAAAAAAAAAAQAAAABAAAAAIAAQAEAA=</HashCode>
+      <FileName>Assets\_Scripts\Actions\SpinAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arrow" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_Scripts\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraController" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgRAgAAAEGAAAAAEAAAAAAgAAAQAEAAAAABAACAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraManager" Collapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAACAAEAAAAAAAAAAAABAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\CameraManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAI" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAFAAAAAAAAAAAAAAAAIAEAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\EnemyAI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAIAction" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\_Scripts\EnemyAIAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FireBall" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAADAAQAAIAAAAAABAABAMAAAAAAAAwAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\FireBall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQYgAAAAAAAAAAAAAUAAAAAAIAIAAAAAQAAAAAAQAEA=</HashCode>
+      <FileName>Assets\_Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreateGridObject" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\CreateGridObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridDebugObject" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAIAAAAAAAAAAAAAAAAAgAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\GridDebugObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridObject" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAgAAAAAAEAABAAACAAUAAAAAAAAAAAAIAAIA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\GridObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridSystem&lt;TGridObject&gt;" Collapsed="true">
+    <Position X="28.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAIAIQAQgAAAABAAgACQAAAAAAAQAAABAA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\GridSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridSystemVisual" Collapsed="true">
+    <Position X="30" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACgQAQAACQAAAAIAAAAEBAAAwAAAAAAAIGA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\GridSystemVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridSystemVisualSingle" Collapsed="true">
+    <Position X="31.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAACAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\GridSystemVisualSingle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthSystem" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACAAAAAAAAgAAAAgAAAAAAAAAAAAkAACgAAIAg=</HashCode>
+      <FileName>Assets\_Scripts\HealthSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGrid" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACEQAAACAQAAQAQkAAQABAIgAAAAAAQIAAgAAABME=</HashCode>
+      <FileName>Assets\_Scripts\LevelGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LookAtCamera" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAIAAIAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\LookAtCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenu" Collapsed="true">
+    <Position X="24.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseWorld" Collapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\MouseWorld.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pathfinding" Collapsed="true">
+    <Position X="28.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABAwAADAAQAgQAQAQAQAAAEAQAQIIAQAAAEAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\Pathfinding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PathfindingGridDebugObject" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAAAAAIAAAAEAAAAAAgAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\PathfindingGridDebugObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PathNode" Collapsed="true">
+    <Position X="30" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggAAAAMAAAACGAEAAAAAAAAEgABAAAAAABAAAIEgIE=</HashCode>
+      <FileName>Assets\_Scripts\PathNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_Scripts\Projectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneSelector" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAI=</HashCode>
+      <FileName>Assets\_Scripts\SceneSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenShake" Collapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAEg=</HashCode>
+      <FileName>Assets\_Scripts\ScreenShake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenShakeActions" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\ScreenShakeActions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Testing" Collapsed="true">
+    <Position X="28.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Testing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurnSystem" Collapsed="true">
+    <Position X="30" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAIAAAAAIAAABAAAAAQAAAAQBAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\TurnSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionBusyUI" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAEAAAAAAAAAAEAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\ActionBusyUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionButtonUI" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABQAAAAAAAAAABAAQAAEAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\ActionButtonUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenuUI" Collapsed="true">
+    <Position X="31.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAGAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\PauseMenuUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectedUnitUI" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAAAAACgAAAAAAAQAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\SelectedUnitUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurnSystemUI" Collapsed="true">
+    <Position X="31.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEAACAAECAAAAAAAAACQAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\TurnSystemUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitActionSystemUI" Collapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAECgAARBAAAAAhAAAAAAAECAADAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\UI\UnitActionSystemUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitWorldUI" Collapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBgAAAAAEAAAAAAgIAAACAAABAABAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\UnitWorldUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VictoryDefeatUI" Collapsed="true">
+    <Position X="23" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIAAAAABAAAAAAAAAAACAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UI\VictoryDefeatUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Unit" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wCQIAACACKJAEQAAOkAgAAUAAgAEIFAAAsCAokCQAME=</HashCode>
+      <FileName>Assets\_Scripts\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitActionSystem" Collapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAIASAEAAIAEEBgAEAAAAAAAAAERABAAAIAQEA=</HashCode>
+      <FileName>Assets\_Scripts\UnitActionSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitAnimator" Collapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAgCQAAAAACAAAAAAAAAAACAAAAAAAAAAAQAAAAUA=</HashCode>
+      <FileName>Assets\_Scripts\UnitAnimator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitManager" Collapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACEAAAAQAABAAAAAIkAAAAAAQAAQAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\UnitManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitRagdoll" Collapsed="true">
+    <Position X="28.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAQAAAAAAAAAAAAgAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\UnitRagdoll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitRagdollSpawner" Collapsed="true">
+    <Position X="30" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAEAAAAAAAAAAAAAABAAAIAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\UnitRagdollSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitSelectedVisual" Collapsed="true">
+    <Position X="31.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAACAgAAAAAAAACAAAAAAAAAAABAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\UnitSelectedVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitStats" Collapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAACAAAAAAAAAAEAAAABAAAAAAAAAAo=</HashCode>
+      <FileName>Assets\_Scripts\UnitStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csAnimationSpin" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\Animation&amp;Script\csAnimationSpin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csDestroyEffect" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csMouseOrbit" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAICEBAEAAAgAAAABgAABEAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\Animation&amp;Script\csMouseOrbit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csParticleMove" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\Animation&amp;Script\csParticleMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csShowAllEffect" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACgAAAAAAAAABAAAAAAAAAgAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\Animation&amp;Script\csShowAllEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csShurikenEffectChanger" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csShurikenEffectEditor" Collapsed="true">
+    <Position X="31.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAACAAIAAAABAAAAAAAAAACCAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychoticLab.CharacterRandomizer" Collapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiQAEkAQACAAQAAEMEAUIDKOAQCECAIAAIThCAwICIA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychoticLab.CharacterObjectGroups" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgAAIBAAAAAgEIAAAAAAQgAAAoACAAEQAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychoticLab.CharacterObjectListsAllGender" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEABAAAAAgAAgQCAAAhAAAAAAAAQAAAACIACAAACAIg=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GridPosition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEwAEAAAAAAAAAAIBAAABAAQAAAiA=</HashCode>
+      <FileName>Assets\_Scripts\Grid\GridPosition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Enum Name="GameState" Collapsed="true">
+    <Position X="23" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PsychoticLab.Gender" Collapsed="true">
+    <Position X="24.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PsychoticLab.Race" Collapsed="true">
+    <Position X="28.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PsychoticLab.SkinColor" Collapsed="true">
+    <Position X="30" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PsychoticLab.Elements" Collapsed="true">
+    <Position X="19.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PsychoticLab.HeadCovering" Collapsed="true">
+    <Position X="26.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PsychoticLab.FacialHair" Collapsed="true">
+    <Position X="21.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ImportetAssets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

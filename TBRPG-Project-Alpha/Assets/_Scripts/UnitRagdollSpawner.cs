@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+/// <summary>
+/// The unit ragdoll spawner.
+/// </summary>
 
 public class UnitRagdollSpawner : MonoBehaviour
 {
