@@ -269,7 +269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27eae0b25a8a74a4a8d57d724186a9d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d4696d24ac92dd40b44166a960ef1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &625776215
@@ -595,7 +595,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 451616970}
-        m_TargetAssemblyTypeName: SceneSelector, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 1142942861}
   - component: {fileID: 1142942860}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SelectionMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 451616970}
-        m_TargetAssemblyTypeName: SceneSelector, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:
@@ -1060,7 +1060,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 451616970}
-        m_TargetAssemblyTypeName: SceneSelector, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:

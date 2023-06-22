@@ -301,4 +301,13 @@ public class MeleeAction : BaseAction
     {
         return 2;
     }
+
+    /// <summary>
+    /// Gets the target unit.
+    /// </summary>
+    /// <returns>An Unit.</returns>
+    public Unit GetTargetUnit()
+    {
+        return targetUnit;
+    }
 }

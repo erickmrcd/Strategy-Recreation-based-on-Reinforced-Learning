@@ -73,9 +73,7 @@ public abstract class BaseAction : MonoBehaviour
     {
         isActive = true;
         this.onActionComplete = onActionComplete;
-
-        OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
-
+        OnAnyActionStarted?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>
@@ -85,8 +83,8 @@ public abstract class BaseAction : MonoBehaviour
     {
         isActive = false;
         this.onActionComplete();
+        OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
 
-        OnAnyActionStarted?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>

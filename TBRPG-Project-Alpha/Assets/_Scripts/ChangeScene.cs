@@ -1,10 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-/// <summary>
-/// The scene selector.
-/// </summary>
 
-public class SceneSelector : MonoBehaviour
+public class ChangeScene : MonoBehaviour
 {
     /// <summary>
     /// 
@@ -12,7 +11,8 @@ public class SceneSelector : MonoBehaviour
     /// <param name="name"></param>
     public void SelectScene(string name)
     {
-        SceneManager.LoadScene(name);
+        SceneManager.LoadSceneAsync(name);
+        Time.timeScale = 1f;
     }
 
     /// <summary>
@@ -20,6 +20,7 @@ public class SceneSelector : MonoBehaviour
     /// </summary>
     public void ResetScene()
     {
-          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 }
