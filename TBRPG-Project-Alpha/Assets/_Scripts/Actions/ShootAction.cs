@@ -1,15 +1,19 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static BowAction;
 using Random = UnityEngine.Random;
+/// <summary>
+/// The shoot action.
+/// </summary>
 
 public class ShootAction : BaseAction
 {
     public event EventHandler<OnShootEventArgs> OnShoot;
 
 
+    /// <summary>
+    /// The on shoot event args.
+    /// </summary>
     public class OnShootEventArgs : EventArgs
     {
         public Unit targetUnit;
@@ -17,6 +21,9 @@ public class ShootAction : BaseAction
     }
 
 
+    /// <summary>
+    /// The state.
+    /// </summary>
     private enum State
     {
         Aiming,
@@ -24,7 +31,7 @@ public class ShootAction : BaseAction
         Cooloff,
     }
 
-    
+
     [SerializeField] private int maxShootDistance = 1;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private LayerMask obstaclesLayerMask;
@@ -37,6 +44,9 @@ public class ShootAction : BaseAction
     private Unit targetUnit;
     private bool canShootBullet;
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
         if (!isActive)
@@ -62,7 +72,7 @@ public class ShootAction : BaseAction
         }
 
         stateTimer -= Time.deltaTime;
-        
+
         if (stateTimer <= 0f)
         {
             NextState();
@@ -75,7 +85,7 @@ public class ShootAction : BaseAction
     /// </summary>
     private void Shoot()
     {
-        
+
         if (unit.AttackRoll() <= targetUnit.GetArmorClass())
         {
             OnShoot?.Invoke(this, new OnShootEventArgs
@@ -91,8 +101,9 @@ public class ShootAction : BaseAction
             Debug.Log("Miss");
         }
     }
+
     /// <summary>
-    /// 
+    /// Nexts the state.
     /// </summary>
     private void NextState()
     {
@@ -114,11 +125,20 @@ public class ShootAction : BaseAction
         }
     }
 
+    /// <summary>
+    /// Gets the action name.
+    /// </summary>
+    /// <returns>A string.</returns>
     public override string GetActionName()
     {
         return "shoot";
     }
 
+    /// <summary>
+    /// Gets the enemy a i action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <returns>An EnemyAIAction.</returns>
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
@@ -139,6 +159,10 @@ public class ShootAction : BaseAction
         return GetValidActionGridPositionList(gridPosition).Count;
     }
 
+    /// <summary>
+    /// Gets the valid action grid position list.
+    /// </summary>
+    /// <returns>A list of GridPositions.</returns>
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         GridPosition unitGridPosition = unit.GetGridPosition();
@@ -161,7 +185,7 @@ public class ShootAction : BaseAction
             {
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
-               
+
                 if (maxShootDistance > 1 && ((x == 0 && z == 1) || (x == 0 && z == -1)
                    || (x == 1 && z == 0) || (x == -1 && z == 0)))
                 {
@@ -203,8 +227,8 @@ public class ShootAction : BaseAction
                 {
                     continue;
                 }
-                
-                
+
+
 
                 validGridPositionList.Add(testGridPosition);
             }
@@ -213,9 +237,14 @@ public class ShootAction : BaseAction
         return validGridPositionList;
     }
 
+    /// <summary>
+    /// Takes the action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <param name="onActionComplete">The on action complete.</param>
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        
+
         targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
 
         state = State.Aiming;
@@ -243,11 +272,20 @@ public class ShootAction : BaseAction
         return maxShootDistance;
     }
 
+    /// <summary>
+    /// Simulates the action score.
+    /// </summary>
+    /// <param name="action">The action.</param>
+    /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
         return 0;
     }
 
+    /// <summary>
+    /// Gets the action point cost.
+    /// </summary>
+    /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
         return 2;

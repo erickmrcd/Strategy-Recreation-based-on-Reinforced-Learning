@@ -19,6 +19,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decimus Revan Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3056688233930434048, guid: d5c63b113a2883b44ba0463aee453b4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3179057721189303911, guid: d5c63b113a2883b44ba0463aee453b4a,
         type: 3}
       propertyPath: unit
@@ -84,6 +89,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4665440155350188644, guid: d5c63b113a2883b44ba0463aee453b4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4956670877810562285, guid: d5c63b113a2883b44ba0463aee453b4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -128,6 +138,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 97470923668837061, guid: d5c63b113a2883b44ba0463aee453b4a, type: 3}
     - {fileID: 1059823246320918308, guid: d5c63b113a2883b44ba0463aee453b4a, type: 3}
+    - {fileID: 8893934192881222133, guid: d5c63b113a2883b44ba0463aee453b4a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1435825037297168876, guid: d5c63b113a2883b44ba0463aee453b4a,
@@ -694,8 +705,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 24.65266
-  m_Center: {x: -3.0529537e-15, y: -0.00000035953647, z: -12.064048}
+  m_Radius: 10
+  m_Center: {x: -3.0529537e-15, y: -0.00000035953647, z: 0}
 --- !u!54 &5692339884321984025
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -735,7 +746,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -40.415424, y: 6.136607, z: 1.9335365e-13}
+  m_ConnectedAnchor: {x: -40.449306, y: 6.14732, z: 1.9348684e-13}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -1333,9 +1344,9 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!4 &2962113534653261522 stripped
+--- !u!4 &2961873806265677616 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4956724420054904487, guid: d5c63b113a2883b44ba0463aee453b4a,
+  m_CorrespondingSourceObject: {fileID: 4956467031751655237, guid: d5c63b113a2883b44ba0463aee453b4a,
     type: 3}
   m_PrefabInstance: {fileID: 7913484295140935797}
   m_PrefabAsset: {fileID: 0}
@@ -1357,4 +1368,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8886d9f0921e6a54a93b250eedeffa62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollRootBone: {fileID: 2962113534653261522}
+  ragdollRootBone: {fileID: 2961873806265677616}

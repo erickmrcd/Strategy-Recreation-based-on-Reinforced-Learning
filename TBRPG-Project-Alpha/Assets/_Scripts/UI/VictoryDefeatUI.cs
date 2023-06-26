@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +6,9 @@ public class VictoryDefeatUI : MonoBehaviour
     [SerializeField] private GameObject victoryDefeatPanel;
     [SerializeField] private TextMeshProUGUI victoryDefeatText;
 
+    /// <summary>
+    /// Starts the.
+    /// </summary>
     private void Start()
     {
         victoryDefeatPanel.SetActive(false);
@@ -24,6 +25,7 @@ public class VictoryDefeatUI : MonoBehaviour
     {
         victoryDefeatText.text = "¡Victoria!";
         victoryDefeatPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
     /// <summary>
     /// 
@@ -34,5 +36,6 @@ public class VictoryDefeatUI : MonoBehaviour
     {
         victoryDefeatText.text = "Derrota";
         victoryDefeatPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

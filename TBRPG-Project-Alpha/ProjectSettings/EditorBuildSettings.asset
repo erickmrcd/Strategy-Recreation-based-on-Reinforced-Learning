@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Walls.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Dungeon.unity
+    path: Assets/Scenes/Town.unity
     guid: e164acdcaa7a8174d895d0d18de54402
   m_configObjects: {}

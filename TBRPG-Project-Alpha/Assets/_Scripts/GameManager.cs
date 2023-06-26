@@ -1,16 +1,24 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// The game state.
+/// </summary>
 
 public enum GameState
 {
     Play,
     GameOver
 }
+/// <summary>
+/// The game manager.
+/// </summary>
 
 public class GameManager : MonoBehaviour
 {
+    /// <summary>
+    /// Gets the instance.
+    /// </summary>
     public static GameManager Instance { get; private set; }
 
     //Variable
@@ -18,7 +26,11 @@ public class GameManager : MonoBehaviour
     private List<Unit> enemyUnitList;
     public event EventHandler OnPlayerVictory;
     public event EventHandler OnPlayerDefeat;
+    public event EventHandler OnGamePause;
 
+    /// <summary>
+    /// Awakes the.
+    /// </summary>
     private void Awake()
     {
         if (Instance != null)
@@ -29,17 +41,20 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-     
-        playerUnitList =  UnitManager.Instance.GetFriendlyUnitList();
+
+        playerUnitList = UnitManager.Instance.GetFriendlyUnitList();
         enemyUnitList = UnitManager.Instance.GetEnemyUnitList();
-        
+
     }
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
 
-        CheckForVictoryOrDefeat(); 
-        
+        CheckForVictoryOrDefeat();
+        Pause();
     }
     /// <summary>
     /// 
@@ -48,11 +63,11 @@ public class GameManager : MonoBehaviour
     {
         if (IAWin())
         {
-            OnPlayerDefeat?.Invoke(this,EventArgs.Empty);
+            OnPlayerDefeat?.Invoke(this, EventArgs.Empty);
         }
         else if (PlayerWin())
         {
-            OnPlayerVictory?.Invoke(this,EventArgs.Empty);
+            OnPlayerVictory?.Invoke(this, EventArgs.Empty);
         }
     }
     /// <summary>
@@ -81,6 +96,15 @@ public class GameManager : MonoBehaviour
         }
         return false;
 
+    }
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnGamePause?.Invoke(this, EventArgs.Empty);
+
+        };
     }
 
 }

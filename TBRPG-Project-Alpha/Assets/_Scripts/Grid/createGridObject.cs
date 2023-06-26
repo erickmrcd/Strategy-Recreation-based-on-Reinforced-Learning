@@ -1,3 +1,3 @@
-﻿public class createGridObject
+﻿public class CreateGridObject
 {
 }

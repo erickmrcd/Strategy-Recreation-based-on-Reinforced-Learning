@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnSystem : MonoBehaviour
@@ -10,7 +8,7 @@ public class TurnSystem : MonoBehaviour
     public event EventHandler OnTurnChanged;
 
     private int turnNumber = 1;
-    private bool isPlayerTurn = true;  
+    private bool isPlayerTurn = true;
 
     private void Awake()
     {

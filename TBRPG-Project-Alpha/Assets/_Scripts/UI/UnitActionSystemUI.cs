@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UnitActionSystemUI : MonoBehaviour
 {
@@ -57,7 +55,7 @@ public class UnitActionSystemUI : MonoBehaviour
             }
         }
 
-        
+
     }
 
     /// <summary>
@@ -80,7 +78,7 @@ public class UnitActionSystemUI : MonoBehaviour
         {
             actionPointsText.text = "Action Points: " + selectedUnit.GetActionPoints();
         }
-        
+
     }
     /// <summary>
     /// 

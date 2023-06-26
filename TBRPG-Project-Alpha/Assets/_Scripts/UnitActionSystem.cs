@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,7 +28,7 @@ public class UnitActionSystem : MonoBehaviour
         {
             Debug.LogError("Existe más de un UnitActionSystem" + transform + " - " + Instance);
             Destroy(gameObject);
-            return; 
+            return;
         }
 
         Instance = this;
@@ -70,13 +68,13 @@ public class UnitActionSystem : MonoBehaviour
     /// </summary>
     private void HandleSelectedAction()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.Instance.GetMouseButtonDown())
         {
             GridPosition mouseGridPosition = LevelGrid.Instance.GetGridPosition(MouseWorld.GetPosition());
             if (selectedAction == null) { return; }
             if (!selectedAction.IsValidActionGridPosition(mouseGridPosition))
             {
-                return;                
+                return;
             }
             if (!selectedUnit.TrySpendActionPointsToTakeAction(selectedAction))
             {
@@ -134,7 +132,7 @@ public class UnitActionSystem : MonoBehaviour
                 }
             }
 
-            
+
         }
         return false;
 
@@ -144,7 +142,7 @@ public class UnitActionSystem : MonoBehaviour
     /// 
     /// </summary>
     /// <returns></returns>
-    public  BaseAction GetSelectedAction()
+    public BaseAction GetSelectedAction()
     {
         return selectedAction;
     }
@@ -160,8 +158,8 @@ public class UnitActionSystem : MonoBehaviour
             SetSelectedAction(unit.GetAction<MoveAction>());
             OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
         }
-        
-        
+
+
     }
 
     /// <summary>

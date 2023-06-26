@@ -42,7 +42,7 @@ public struct GridPosition : IEquatable<GridPosition>
 
     public override string ToString()
     {
-        return "x: "+x+"; z: "+z;
+        return "x: " + x + "; z: " + z;
     }
     /// <summary>
     /// 
@@ -72,7 +72,7 @@ public struct GridPosition : IEquatable<GridPosition>
     /// <returns></returns>
     public static bool operator !=(GridPosition a, GridPosition b)
     {
-        return !(a==b);
+        return !(a == b);
     }
     /// <summary>
     /// 

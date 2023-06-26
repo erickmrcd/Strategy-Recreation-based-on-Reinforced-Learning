@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class TurnSystemUI : MonoBehaviour
 {
@@ -19,7 +17,7 @@ public class TurnSystemUI : MonoBehaviour
         });
 
         TurnSystem.Instance.OnTurnChanged += Instance_OnTurnChanged;
-        
+
         UpdateTurnText();
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
@@ -43,7 +41,7 @@ public class TurnSystemUI : MonoBehaviour
     /// </summary>
     private void UpdateTurnText()
     {
-        turnNumberText.text = "Turno: " + TurnSystem.Instance.GetTurnNumber() ;
+        turnNumberText.text = "Turno: " + TurnSystem.Instance.GetTurnNumber();
     }
     /// <summary>
     /// 

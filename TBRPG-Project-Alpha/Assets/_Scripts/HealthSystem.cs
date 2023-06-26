@@ -1,20 +1,21 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// The health system.
+/// </summary>
 
 public class HealthSystem : MonoBehaviour
 {
     public event EventHandler OnDead;
     public event EventHandler OnDamage;
 
-    [SerializeField] private int health = 100;
+    [SerializeField]private int health = 30;
     private int healthMax;
 
-    private void Awake()
-    {
-        healthMax = health;
-    }
+    //private void Start()
+    //{
+    //    healthMax = health;
+    //}
     /// <summary>
     /// 
     /// </summary>
@@ -28,21 +29,21 @@ public class HealthSystem : MonoBehaviour
             health = 0;
         }
 
-        OnDamage?.Invoke(this,EventArgs.Empty);
+        OnDamage?.Invoke(this, EventArgs.Empty);
 
         if (health == 0)
         {
             Die();
         }
 
-        Debug.Log(health);
+        Debug.Log(health); 
     }
     /// <summary>
     /// 
     /// </summary>
     private void Die()
     {
-        OnDead?.Invoke(this,EventArgs.Empty);
+        OnDead?.Invoke(this, EventArgs.Empty);
     }
     /// <summary>
     /// 
@@ -50,7 +51,7 @@ public class HealthSystem : MonoBehaviour
     /// <returns></returns>
     public float GetHealthNormalized()
     {
-        return (float)( health) / healthMax;
+        return (float)(health) / healthMax;
     }
     /// <summary>
     /// 
@@ -67,6 +68,16 @@ public class HealthSystem : MonoBehaviour
     public int GetCurrentHealthMax()
     {
         return healthMax;
+    }
+
+    /// <summary>
+    /// Sets the health.
+    /// </summary>
+    /// <param name="health">The health.</param>
+    public void SetHealth(int health)
+    {
+        this.health = health;
+        this.healthMax = health;
     }
 
 }

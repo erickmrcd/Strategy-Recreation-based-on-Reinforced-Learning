@@ -1,7 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// The unit ragdoll spawner.
+/// </summary>
 
 public class UnitRagdollSpawner : MonoBehaviour
 {

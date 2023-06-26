@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 /// <summary>
 /// 
@@ -22,7 +19,11 @@ public class GridObject
         this.gridPosition = gridPosition;
         unitList = new List<Unit>();
     }
-    
+
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <returns>A string.</returns>
     public override string ToString()
     {
         string unitString = "";

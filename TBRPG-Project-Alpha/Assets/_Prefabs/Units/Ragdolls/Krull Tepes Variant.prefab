@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1566164843432471456, guid: c211d1c50dcb7a34095ef07e23863c10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2077335476516780033, guid: c211d1c50dcb7a34095ef07e23863c10,
         type: 3}
       propertyPath: unit
@@ -109,6 +114,11 @@ PrefabInstance:
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3237102320781958914, guid: c211d1c50dcb7a34095ef07e23863c10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8658322844206044508, guid: c211d1c50dcb7a34095ef07e23863c10, type: 3}
     - {fileID: 228345326007980014, guid: c211d1c50dcb7a34095ef07e23863c10, type: 3}
@@ -123,6 +133,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5884044778152324364, guid: c211d1c50dcb7a34095ef07e23863c10, type: 3}
     - {fileID: 646715860891894143, guid: c211d1c50dcb7a34095ef07e23863c10, type: 3}
+    - {fileID: 269487259163946214, guid: c211d1c50dcb7a34095ef07e23863c10, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2711980112115036159, guid: c211d1c50dcb7a34095ef07e23863c10,
@@ -276,10 +287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8886d9f0921e6a54a93b250eedeffa62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollRootBone: {fileID: 8097765709116658329}
---- !u!4 &8097765709116658329 stripped
+  ragdollRootBone: {fileID: 8097870164070475181}
+--- !u!4 &8097870164070475181 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5924112125471718228, guid: c211d1c50dcb7a34095ef07e23863c10,
+  m_CorrespondingSourceObject: {fileID: 5924148412315864160, guid: c211d1c50dcb7a34095ef07e23863c10,
     type: 3}
   m_PrefabInstance: {fileID: 2474630780642372045}
   m_PrefabAsset: {fileID: 0}
@@ -410,8 +421,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.09549455
-  m_Center: {x: 0, y: 0.09549455, z: 0}
+  m_Radius: 10
+  m_Center: {x: 0, y: 4, z: 0}
 --- !u!54 &6377826453125431694
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -451,7 +462,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -40.415424, y: 6.136607, z: 1.9335365e-13}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:

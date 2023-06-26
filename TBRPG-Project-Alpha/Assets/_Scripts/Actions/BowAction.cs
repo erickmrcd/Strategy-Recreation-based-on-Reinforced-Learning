@@ -1,14 +1,19 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+/// <summary>
+/// The bow action.
+/// </summary>
 
 public class BowAction : BaseAction
 {
     public event EventHandler<OnBowShootEventArgs> OnBowShoot;
     public event EventHandler OnAiming;
 
+    /// <summary>
+    /// The on bow shoot event args.
+    /// </summary>
     public class OnBowShootEventArgs : EventArgs
     {
         public Unit targetUnit;
@@ -16,6 +21,9 @@ public class BowAction : BaseAction
     }
 
 
+    /// <summary>
+    /// The state.
+    /// </summary>
     private enum State
     {
         Aiming,
@@ -35,6 +43,9 @@ public class BowAction : BaseAction
     private bool canShootAnArrow;
     private int numSimulations = 1000;
 
+    /// <summary>
+    /// Updates the.
+    /// </summary>
     private void Update()
     {
         if (!isActive)
@@ -123,14 +134,22 @@ public class BowAction : BaseAction
         }
     }
 
+    /// <summary>
+    /// Gets the action name.
+    /// </summary>
+    /// <returns>A string.</returns>
     public override string GetActionName()
     {
         return "Bow";
     }
 
-    
 
 
+
+    /// <summary>
+    /// Gets the valid action grid position list.
+    /// </summary>
+    /// <returns>A list of GridPositions.</returns>
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         GridPosition unitGridPosition = unit.GetGridPosition();
@@ -138,6 +157,11 @@ public class BowAction : BaseAction
         return GetValidActionGridPositionList(unitGridPosition);
     }
 
+    /// <summary>
+    /// Takes the action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <param name="onActionComplete">The on action complete.</param>
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
         targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
@@ -243,6 +267,11 @@ public class BowAction : BaseAction
         return maxShootDistance;
     }
 
+    /// <summary>
+    /// Gets the enemy a i action.
+    /// </summary>
+    /// <param name="gridPosition">The grid position.</param>
+    /// <returns>An EnemyAIAction.</returns>
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         float totalScore = 0f;
@@ -261,6 +290,11 @@ public class BowAction : BaseAction
         };
     }
 
+    /// <summary>
+    /// Simulates the action score.
+    /// </summary>
+    /// <param name="action">The action.</param>
+    /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
         GridPosition targetGridPosition = action.gridPosition;
@@ -282,11 +316,13 @@ public class BowAction : BaseAction
         float healthFactor = 1f - targetUnit.GetHealthNormalized();
         score += healthFactor * 100f; // Ponderación de la salud en la puntuación
 
-        // Agrega aquí otros factores relevantes para la acción Bow
-
         return score;
     }
 
+    /// <summary>
+    /// Gets the action point cost.
+    /// </summary>
+    /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
         return 2;

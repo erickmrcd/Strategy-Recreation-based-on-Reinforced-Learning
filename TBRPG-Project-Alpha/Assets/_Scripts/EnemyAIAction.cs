@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/// <summary>
+/// The enemy ai action.
+/// </summary>
 
 public class EnemyAIAction
 {

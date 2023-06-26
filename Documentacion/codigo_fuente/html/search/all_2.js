@@ -7,6 +7,6 @@ var searchData=
   ['canspendactionpointstotakeaction_4',['CanSpendActionPointsToTakeAction',['../class_unit.html#acb7946d692a60a71aa9db3bab5b7fd52',1,'Unit']]],
   ['characterportrait_5',['CharacterPortrait',['../class_unit.html#ae57c9bc185dc531036101b231af67114',1,'Unit']]],
   ['createdebugobjects_6',['CreateDebugObjects',['../class_grid_system.html#a3efde33a36a25bfe22d993366ff5ce64',1,'GridSystem']]],
-  ['creategridobject_7',['createGridObject',['../classcreate_grid_object.html',1,'']]],
-  ['creategridobject_2ecs_8',['createGridObject.cs',['../create_grid_object_8cs.html',1,'']]]
+  ['creategridobject_7',['CreateGridObject',['../class_create_grid_object.html',1,'']]],
+  ['creategridobject_2ecs_8',['CreateGridObject.cs',['../_create_grid_object_8cs.html',1,'']]]
 ];
