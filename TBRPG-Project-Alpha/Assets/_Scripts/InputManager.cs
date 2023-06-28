@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,15 @@ public class InputManager : MonoBehaviour
     public bool GetMouseButtonDown()
     {
         return Input.GetMouseButtonDown(0);
+    }
+
+    /// <summary>
+    /// Gets the right mouse button.
+    /// </summary>
+    /// <returns>A bool.</returns>
+    public bool GetRightMouseButton()
+    {
+        return Input.GetMouseButtonDown(1);
     }
 
     public Vector2 GetCameraMoveVector()
@@ -92,4 +102,6 @@ public class InputManager : MonoBehaviour
 
         return zoomAmount;
     }
+
+    
 }

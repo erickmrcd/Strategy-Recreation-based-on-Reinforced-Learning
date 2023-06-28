@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isRangedUnit: 1
-  unitName: Jhon Doe
+  unitName: Aria Songwaver
   armorClass: 10
   characterPortrait: {fileID: 0}
   characterClass: 7

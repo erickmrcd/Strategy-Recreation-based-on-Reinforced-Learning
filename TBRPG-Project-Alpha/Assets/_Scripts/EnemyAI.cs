@@ -107,10 +107,12 @@ public class EnemyAI : MonoBehaviour
 
         foreach (Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())
         {
+            
             if (TryTakeEnemyAIAction(enemyUnit, onEnemyAIActionComplete))
             {
                 return true;
             }
+            
         }
         return false;
     }
@@ -125,7 +127,7 @@ public class EnemyAI : MonoBehaviour
     {
         EnemyAIAction bestEnemyAIAction = null;
         BaseAction bestBaseAction = null;
-
+        UnitActionSystem.Instance.SetSelectedUnit(enemyUnit);
         foreach (BaseAction baseAction in enemyUnit.GetBaseActions())
         {
             if (!enemyUnit.CanSpendActionPointsToTakeAction(baseAction))

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// The unit action system UI.
+/// </summary>
+
 public class UnitActionSystemUI : MonoBehaviour
 {
     [SerializeField] private Transform actionButtonPrefab;
@@ -29,8 +33,9 @@ public class UnitActionSystemUI : MonoBehaviour
         UpdateActionPoints();
     }
 
+
     /// <summary>
-    /// 
+    /// Creates the unit action button.
     /// </summary>
     private void CreateUnitActionButton()
     {
@@ -77,6 +82,10 @@ public class UnitActionSystemUI : MonoBehaviour
         if (selectedUnit != null)
         {
             actionPointsText.text = "Action Points: " + selectedUnit.GetActionPoints();
+        }
+        else
+        {
+            actionPointsText.text = "Action Points: 0";
         }
 
     }

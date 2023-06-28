@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+/// <summary>
+/// The turn system.
+/// </summary>
 
 public class TurnSystem : MonoBehaviour
 {
@@ -21,8 +24,9 @@ public class TurnSystem : MonoBehaviour
 
         Instance = this;
     }
+
     /// <summary>
-    /// 
+    /// nexts the turn.
     /// </summary>
     public void nextTurn()
     {
@@ -31,18 +35,20 @@ public class TurnSystem : MonoBehaviour
 
         OnTurnChanged?.Invoke(this, EventArgs.Empty);
     }
+
     /// <summary>
-    /// 
+    /// Gets the turn number.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>An int.</returns>
     public int GetTurnNumber()
     {
         return turnNumber;
     }
+
     /// <summary>
-    /// 
+    /// Are the player turn.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A bool.</returns>
     public bool IsPlayerTurn()
     {
         return isPlayerTurn;

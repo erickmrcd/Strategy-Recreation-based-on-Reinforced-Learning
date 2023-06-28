@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,7 @@ public class SelectedUnitUI : MonoBehaviour
 {
     [SerializeField] private Transform characterPortraitContainerTransform;
     [SerializeField] private Transform characterPortraitPrefab;
-    [SerializeField] private Transform unitInfoPrefab;
+    [SerializeField] private TextMeshProUGUI unitInfoPrefab;
 
     private void Start()
     {
@@ -22,6 +23,8 @@ public class SelectedUnitUI : MonoBehaviour
     {
         CreateCharacterPortrait();
     }
+
+
     /// <summary>
     /// 
     /// </summary>
@@ -41,7 +44,11 @@ public class SelectedUnitUI : MonoBehaviour
             Image characterPortrait = characterPortraitObject.AddComponent<Image>();
             characterPortrait.sprite = selectedUnit.CharacterPortrait;
             characterPortrait.transform.SetParent(characterPortraitTransform, false);
-
+            unitInfoPrefab.text = selectedUnit.GetUnitName();
+        }
+        else
+        {
+            unitInfoPrefab.text = "";
         }
 
     }

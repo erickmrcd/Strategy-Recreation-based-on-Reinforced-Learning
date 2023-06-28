@@ -325,7 +325,7 @@ public class BowAction : BaseAction
     /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
-        return 2;
+        return 1;
     }
 }
 

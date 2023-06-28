@@ -25,33 +25,37 @@ public class TurnSystemUI : MonoBehaviour
 
 
     }
+
     /// <summary>
-    /// 
+    /// Instance_S the on turn changed.
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The e.</param>
     private void Instance_OnTurnChanged(object sender, System.EventArgs e)
     {
         UpdateTurnText();
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
     }
+
     /// <summary>
-    /// 
+    /// Updates the turn text.
     /// </summary>
     private void UpdateTurnText()
     {
         turnNumberText.text = "Turno: " + TurnSystem.Instance.GetTurnNumber();
     }
+
     /// <summary>
-    /// 
+    /// Updates the enemy turn visual.
     /// </summary>
     private void UpdateEnemyTurnVisual()
     {
         enemyTurnVisualGameObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
     }
+
     /// <summary>
-    /// 
+    /// Updates the end turn button visibility.
     /// </summary>
     private void UpdateEndTurnButtonVisibility()
     {

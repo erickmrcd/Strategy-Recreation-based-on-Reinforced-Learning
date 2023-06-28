@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isRangedUnit: 0
-  unitName: Jhon Doe
+  unitName: Gwenneth Ligthfeather
   armorClass: 10
   characterPortrait: {fileID: 21300000, guid: 60ed3ac4aa426674da3a19ee0270ea81, type: 3}
   characterClass: 11

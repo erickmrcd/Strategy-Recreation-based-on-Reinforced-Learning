@@ -26,7 +26,7 @@ public class Unit : MonoBehaviour
         Warlock,
         Wizard
     }
-    private const int ACTION_POINTS_MAX = 5;
+    private const int ACTION_POINTS_MAX = 3;
 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;

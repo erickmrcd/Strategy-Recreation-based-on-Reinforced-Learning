@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isRangedUnit: 0
-  unitName: Jhon Doe
+  unitName: Drakon Stormscale
   armorClass: 10
   characterPortrait: {fileID: 21300000, guid: f4a6ac1e5e402d44ea359b0dd9ed2133, type: 3}
   characterClass: 0

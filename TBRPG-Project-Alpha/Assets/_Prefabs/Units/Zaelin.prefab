@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isRangedUnit: 0
-  unitName: Jhon Doe
+  unitName: Zaelin
   armorClass: 10
   characterPortrait: {fileID: 0}
   characterClass: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4293de4bcccf814cbcf0cf80aa88ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 4463585911052250278}
   proyectilePrefab: {fileID: 0}
   shootPointTransform: {fileID: 0}
 --- !u!114 &7255643570228430959
@@ -87,8 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6eae509c77f4a488b4af0172e31705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollPrefab: {fileID: 0}
-  originalRootBone: {fileID: 0}
+  ragdollPrefab: {fileID: 5350090975685517447, guid: bc98c521197b5ad44b6fcedfa8878bbe,
+    type: 3}
+  originalRootBone: {fileID: 4371939359475777278}
 --- !u!114 &590077049127254314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   baseWeaponDamage: 0
   WeaponRangeDamage: 0
 --- !u!114 &3715245523707412981
@@ -517,9 +518,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f89037950aa30d043a119f48c2aa5f3e, type: 3}
+--- !u!4 &4371939359475777278 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4008631458412994, guid: f89037950aa30d043a119f48c2aa5f3e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4369057316528916284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4372022353933978456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4091633197534308, guid: f89037950aa30d043a119f48c2aa5f3e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4369057316528916284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4463585911052250278 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95655070056721306, guid: f89037950aa30d043a119f48c2aa5f3e,
     type: 3}
   m_PrefabInstance: {fileID: 4369057316528916284}
   m_PrefabAsset: {fileID: 0}

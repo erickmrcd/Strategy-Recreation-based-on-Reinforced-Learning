@@ -19,7 +19,7 @@ public class UnitActionSystem : MonoBehaviour
 
     private BaseAction selectedAction;
     private bool isBusy;
-
+    private GameObject unitActionPanel;
 
 
     private void Awake()
@@ -30,12 +30,16 @@ public class UnitActionSystem : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        unitActionPanel = GameObject.Find("UnitActionSystemUI");
         Instance = this;
+        
     }
+
+    
 
     private void Start()
     {
+        TurnSystem.Instance.OnTurnChanged += Instance_OnTurnChanged;
         SetSelectedUnit(selectedUnit);
     }
 
@@ -48,6 +52,7 @@ public class UnitActionSystem : MonoBehaviour
 
         if (!TurnSystem.Instance.IsPlayerTurn())
         {
+            
             return;
         }
 
@@ -63,8 +68,20 @@ public class UnitActionSystem : MonoBehaviour
 
         HandleSelectedAction();
     }
+
     /// <summary>
-    /// 
+    /// Instance_S the on turn changed.
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The e.</param>
+    private void Instance_OnTurnChanged(object sender, EventArgs e)
+    {
+        DeSelectedUnit(selectedUnit);
+    }
+
+
+    /// <summary>
+    /// Handles the selected action.
     /// </summary>
     private void HandleSelectedAction()
     {
@@ -85,8 +102,6 @@ public class UnitActionSystem : MonoBehaviour
             selectedAction.TakeAction(mouseGridPosition, ClearBusy);
 
             OnActionStarted?.Invoke(this, EventArgs.Empty);
-
-
         }
     }
     /// <summary>
@@ -111,7 +126,7 @@ public class UnitActionSystem : MonoBehaviour
     /// <returns></returns>
     private bool TryHandleUnitSelection()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.Instance.GetMouseButtonDown())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo, float.MaxValue, unitLayerMask))
@@ -131,13 +146,32 @@ public class UnitActionSystem : MonoBehaviour
                     return true;
                 }
             }
-
-
+        }
+        if (InputManager.Instance.GetRightMouseButton())
+        {
+            DeSelectedUnit(selectedUnit);
+            return true;
         }
         return false;
 
 
     }
+
+    /// <summary>
+    /// Des the selected unit.
+    /// </summary>
+    /// <param name="unit">The unit.</param>
+    private void DeSelectedUnit(Unit unit)
+    {
+        selectedUnit = null;
+        if (selectedUnit == null)
+        {
+            unitActionPanel.SetActive(false);
+            SetSelectedAction(null);
+            OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -146,18 +180,31 @@ public class UnitActionSystem : MonoBehaviour
     {
         return selectedAction;
     }
+
     /// <summary>
-    /// 
+    /// Sets the selected unit.
     /// </summary>
-    /// <param name="unit"></param>
-    private void SetSelectedUnit(Unit unit)
+    /// <param name="unit">The unit.</param>
+    public void SetSelectedUnit(Unit unit)
     {
         selectedUnit = unit;
+        
         if (selectedUnit != null)
         {
-            SetSelectedAction(unit.GetAction<MoveAction>());
-            OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+            if (selectedUnit.IsEnemy())
+            {
+                OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                unitActionPanel.SetActive(true);
+                SetSelectedAction(unit.GetAction<MoveAction>());
+                OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+            }
+            
         }
+        
+        
 
 
     }

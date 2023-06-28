@@ -139,7 +139,7 @@ MonoBehaviour:
   rotateSpeed: 10
   moveSpeed: 4
   stoppingDistance: 0.1
-  maxMoveDistance: 8
+  maxMoveDistance: 6
 --- !u!114 &3618133502426610730
 MonoBehaviour:
   m_ObjectHideFlags: 0

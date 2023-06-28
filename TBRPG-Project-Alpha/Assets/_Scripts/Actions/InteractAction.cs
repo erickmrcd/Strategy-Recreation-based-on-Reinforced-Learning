@@ -99,7 +99,7 @@ public class InteractAction : BaseAction
     /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
-        throw new NotImplementedException();
+        return 1;
     }
 
     /// <summary>

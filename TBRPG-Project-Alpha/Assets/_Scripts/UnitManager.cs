@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ public class UnitManager : MonoBehaviour
     private List<Unit> unitList;
     private List<Unit> friendlyUnitList;
     private List<Unit> enemyUnitList;
-
     private void Awake()
     {
 
@@ -27,12 +27,13 @@ public class UnitManager : MonoBehaviour
         enemyUnitList = new List<Unit>();
     }
 
+
     private void Start()
     {
         Unit.OnAnyUnitSpawned += Unit_OnAnyUnitSpawned;
         Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
-
     }
+
 
 
     /// <summary>
@@ -56,6 +57,7 @@ public class UnitManager : MonoBehaviour
             friendlyUnitList.Add(unit);
         }
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -79,28 +81,36 @@ public class UnitManager : MonoBehaviour
 
 
     /// <summary>
-    /// 
+    /// Gets the unit list.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A list of Units.</returns>
     public List<Unit> GetUnitList()
     {
         return unitList;
     }
+
+
     /// <summary>
-    /// 
+    /// Gets the friendly unit list.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A list of Units.</returns>
     public List<Unit> GetFriendlyUnitList()
     {
         return friendlyUnitList;
     }
+
     /// <summary>
-    /// 
+    /// Gets the enemy unit list.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A list of Units.</returns>
     public List<Unit> GetEnemyUnitList()
     {
         return enemyUnitList;
     }
+
+    /// <summary>
+    /// Gets the unit with action points list.
+    /// </summary>
+    /// <returns>A list of Units.</returns>
 }
 

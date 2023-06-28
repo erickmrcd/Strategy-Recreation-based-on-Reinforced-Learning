@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The unit world UI.
+/// </summary>
+
 public class UnitWorldUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI actionPointsText;

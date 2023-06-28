@@ -63,6 +63,12 @@ public class FireBallAction : BaseAction
                 {
                     continue;
                 }
+                Unit unitTarget = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
+                Unit unit = GetUnit();
+                if(unitTarget.IsEnemy() == unit.IsEnemy())
+                {
+                    continue;
+                }
 
                 validGridPositionList.Add(testGridPosition);
             }
@@ -151,6 +157,6 @@ public class FireBallAction : BaseAction
     /// <returns>An int.</returns>
     public override int GetActionPointCost()
     {
-        return 5;
+        return 3;
     }
 }

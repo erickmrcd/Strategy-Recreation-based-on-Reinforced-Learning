@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     //Variable
     private List<Unit> playerUnitList;
     private List<Unit> enemyUnitList;
+
     public event EventHandler OnPlayerVictory;
     public event EventHandler OnPlayerDefeat;
     public event EventHandler OnGamePause;
@@ -44,7 +45,24 @@ public class GameManager : MonoBehaviour
 
         playerUnitList = UnitManager.Instance.GetFriendlyUnitList();
         enemyUnitList = UnitManager.Instance.GetEnemyUnitList();
+    }
 
+    private void Start()
+    {
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+    }
+
+    /// <summary>
+    /// Turns the system_ on turn changed.
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The e.</param>
+    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    {
+        if (TurnSystem.Instance.IsPlayerTurn())
+        {
+            //OnPlayerTurn?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     /// <summary>
@@ -55,7 +73,35 @@ public class GameManager : MonoBehaviour
 
         CheckForVictoryOrDefeat();
         Pause();
+        ChangeTurn();
     }
+
+    /// <summary>
+    /// Changes the turn.
+    /// </summary>
+    private void ChangeTurn()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && TurnSystem.Instance.IsPlayerTurn())
+        {
+            TurnSystem.Instance.nextTurn();
+        }
+        List<Unit> unitWithoutActionsPoints = new List<Unit>();
+        foreach (Unit unit in playerUnitList)
+        {
+            if (unit.GetActionPoints() < 1)
+            {
+                unitWithoutActionsPoints.Add(unit);
+            }
+        }
+
+    
+        if ((unitWithoutActionsPoints.Count == playerUnitList.Count) && TurnSystem.Instance.IsPlayerTurn())
+        {
+            TurnSystem.Instance.nextTurn();
+        }
+
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -98,6 +144,9 @@ public class GameManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Pauses the game.
+    /// </summary>
     private void Pause()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

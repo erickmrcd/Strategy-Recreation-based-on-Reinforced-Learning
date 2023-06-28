@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isRangedUnit: 0
-  unitName: Jhon Doe
+  unitName: Thora Thunderhammer
   armorClass: 10
   characterPortrait: {fileID: 0}
   characterClass: 6
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6eae509c77f4a488b4af0172e31705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollPrefab: {fileID: 0}
-  originalRootBone: {fileID: 0}
+  ragdollPrefab: {fileID: 4709456025581873527}
+  originalRootBone: {fileID: 2058954229967489207}
 --- !u!114 &8476647337714910286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +344,12 @@ Transform:
 --- !u!4 &2057413910279897703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4562278464507594, guid: 9e880c5e179ee524bb8f0b639c5d34cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2061894719852514477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2058954229967489207 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4377861692589082, guid: 9e880c5e179ee524bb8f0b639c5d34cb,
     type: 3}
   m_PrefabInstance: {fileID: 2061894719852514477}
   m_PrefabAsset: {fileID: 0}
