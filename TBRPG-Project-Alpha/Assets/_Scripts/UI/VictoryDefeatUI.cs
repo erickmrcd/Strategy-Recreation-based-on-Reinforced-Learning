@@ -16,22 +16,24 @@ public class VictoryDefeatUI : MonoBehaviour
         GameManager.Instance.OnPlayerDefeat += Instance_OnPlayerDefeat;
         GameManager.Instance.OnPlayerVictory += Instance_OnPlayerVictory;
     }
+
     /// <summary>
-    /// 
+    /// player victory.
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The e.</param>
     private void Instance_OnPlayerVictory(object sender, System.EventArgs e)
     {
         victoryDefeatText.text = "¡Victoria!";
         victoryDefeatPanel.SetActive(true);
         Time.timeScale = 0f;
     }
+
     /// <summary>
-    /// 
+    /// player defeat.
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The e.</param>
     private void Instance_OnPlayerDefeat(object sender, System.EventArgs e)
     {
         victoryDefeatText.text = "Derrota";

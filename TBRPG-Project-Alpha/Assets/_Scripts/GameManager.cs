@@ -47,24 +47,6 @@ public class GameManager : MonoBehaviour
         enemyUnitList = UnitManager.Instance.GetEnemyUnitList();
     }
 
-    private void Start()
-    {
-        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
-    }
-
-    /// <summary>
-    /// Turns the system_ on turn changed.
-    /// </summary>
-    /// <param name="sender">The sender.</param>
-    /// <param name="e">The e.</param>
-    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
-    {
-        if (TurnSystem.Instance.IsPlayerTurn())
-        {
-            //OnPlayerTurn?.Invoke(this, EventArgs.Empty);
-        }
-    }
-
     /// <summary>
     /// Updates the.
     /// </summary>

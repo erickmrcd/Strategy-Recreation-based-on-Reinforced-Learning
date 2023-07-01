@@ -175,6 +175,10 @@ public class MoveAction : BaseAction
     /// <returns>A float.</returns>
     public override float SimulateActionScore(EnemyAIAction action)
     {
+        if (action == null)
+        {
+            return 0f;
+        }
         GridPosition targetPosition = action.gridPosition;
         int distanceToClosestEnemy = GetDistanceToClosestEnemy(targetPosition);
         Unit closestEnemy = GetClosestEnemy(targetPosition);
