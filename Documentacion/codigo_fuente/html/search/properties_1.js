@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['damageradius_0',['DamageRadius',['../class_fire_ball.html#a46a84bbb2cef78c8a5d9a924f489f617',1,'FireBall']]]
+  ['characterportrait_0',['CharacterPortrait',['../class_unit.html#ae57c9bc185dc531036101b231af67114',1,'Unit']]]
 ];

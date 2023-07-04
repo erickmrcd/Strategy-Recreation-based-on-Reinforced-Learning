@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['removeunit_0',['RemoveUnit',['../class_grid_object.html#a0baed355a4a3bc3901e819831c471fa5',1,'GridObject']]],
-  ['removeunitatgridposition_1',['RemoveUnitAtGridPosition',['../class_level_grid.html#a77b366dc212c6697e1d9ffe6c1cd96c5',1,'LevelGrid']]],
-  ['resetcamefrompathnode_2',['ResetCameFromPathNode',['../class_path_node.html#a0f7c1f2282f6c53cfb190c5104fa5219',1,'PathNode']]]
+  ['pathnode_0',['PathNode',['../class_path_node.html#a84286073cd391bc9479632e317a71426',1,'PathNode']]],
+  ['play_1',['Play',['../class_main_menu.html#ad7270791c5711d7bd75d57a9ab9eedfa',1,'MainMenu']]]
 ];

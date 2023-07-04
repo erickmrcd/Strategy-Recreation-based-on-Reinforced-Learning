@@ -18,8 +18,10 @@ var searchData=
   ['unitragdollspawner_2ecs_15',['UnitRagdollSpawner.cs',['../_unit_ragdoll_spawner_8cs.html',1,'']]],
   ['unitselectedvisual_16',['UnitSelectedVisual',['../class_unit_selected_visual.html',1,'']]],
   ['unitselectedvisual_2ecs_17',['UnitSelectedVisual.cs',['../_unit_selected_visual_8cs.html',1,'']]],
-  ['unitworldui_18',['UnitWorldUI',['../class_unit_world_u_i.html',1,'']]],
-  ['unitworldui_2ecs_19',['UnitWorldUI.cs',['../_unit_world_u_i_8cs.html',1,'']]],
-  ['update_20',['Update',['../class_grid_debug_object.html#a5d267b2625107920b54fe67b1b0ce7c6',1,'GridDebugObject.Update()'],['../class_pathfinding_grid_debug_object.html#a279c471fb020749e330e1b19c6df5f46',1,'PathfindingGridDebugObject.Update()']]],
-  ['updateselectedvisual_21',['UpdateSelectedVisual',['../class_action_button_u_i.html#a2c4d2ab6c5339544a616cffc90acc957',1,'ActionButtonUI']]]
+  ['unitstats_18',['UnitStats',['../class_unit_stats.html',1,'UnitStats'],['../class_unit.html#a7906bb3b2a3069214c1817f1451161fa',1,'Unit.UnitStats']]],
+  ['unitstats_2ecs_19',['UnitStats.cs',['../_unit_stats_8cs.html',1,'']]],
+  ['unitworldui_20',['UnitWorldUI',['../class_unit_world_u_i.html',1,'']]],
+  ['unitworldui_2ecs_21',['UnitWorldUI.cs',['../_unit_world_u_i_8cs.html',1,'']]],
+  ['update_22',['Update',['../class_grid_debug_object.html#a5d267b2625107920b54fe67b1b0ce7c6',1,'GridDebugObject.Update()'],['../class_pathfinding_grid_debug_object.html#a279c471fb020749e330e1b19c6df5f46',1,'PathfindingGridDebugObject.Update()']]],
+  ['updateselectedvisual_23',['UpdateSelectedVisual',['../class_action_button_u_i.html#a2c4d2ab6c5339544a616cffc90acc957',1,'ActionButtonUI']]]
 ];

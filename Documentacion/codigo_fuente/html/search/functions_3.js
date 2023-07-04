@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['equals_0',['Equals',['../struct_grid_position.html#ac3d265d250bf0ed49bbe944dc8652ded',1,'GridPosition.Equals(object obj)'],['../struct_grid_position.html#a45ac4a093765b9e18fa29a179cb8e3d1',1,'GridPosition.Equals(GridPosition other)']]],
-  ['exit_1',['Exit',['../class_main_menu.html#a2a6f329d1d69aa2ccd1703b061c4d51e',1,'MainMenu']]]
+  ['damage_0',['Damage',['../class_health_system.html#a58f31a6d40eb91eacd5fdd00bb028aea',1,'HealthSystem.Damage()'],['../class_unit.html#abf43d9f4c8ccd6f284a1e8982a226d5d',1,'Unit.Damage()'],['../class_unit.html#a5f17bddebde4cc08f671b2eda8040755',1,'Unit.Damage(int damageAmount)']]],
+  ['distance_1',['Distance',['../struct_grid_position.html#a664f34796a21307aea1ef0e6cfeed39c',1,'GridPosition']]]
 ];

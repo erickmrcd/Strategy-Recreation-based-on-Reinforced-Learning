@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['damage_0',['Damage',['../class_health_system.html#a58f31a6d40eb91eacd5fdd00bb028aea',1,'HealthSystem.Damage()'],['../class_unit.html#abf43d9f4c8ccd6f284a1e8982a226d5d',1,'Unit.Damage()'],['../class_unit.html#a5f17bddebde4cc08f671b2eda8040755',1,'Unit.Damage(int damageAmount)']]],
-  ['distance_1',['Distance',['../struct_grid_position.html#a664f34796a21307aea1ef0e6cfeed39c',1,'GridPosition']]]
+  ['calculatedistance_0',['CalculateDistance',['../class_pathfinding.html#a6c129fc8559621a4adcbc8fa2d687caf',1,'Pathfinding']]],
+  ['calculatefcost_1',['CalculateFCost',['../class_path_node.html#a64c545359c100d4478e55c5ec9809342',1,'PathNode']]],
+  ['canspendactionpointstotakeaction_2',['CanSpendActionPointsToTakeAction',['../class_unit.html#acb7946d692a60a71aa9db3bab5b7fd52',1,'Unit']]],
+  ['closesetting_3',['closeSetting',['../class_main_menu.html#a17e61b4838948d160fdfd172c27a6f1d',1,'MainMenu']]],
+  ['createdebugobjects_4',['CreateDebugObjects',['../class_grid_system.html#a3efde33a36a25bfe22d993366ff5ce64',1,'GridSystem']]]
 ];

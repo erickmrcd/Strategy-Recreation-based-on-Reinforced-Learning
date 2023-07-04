@@ -9,8 +9,11 @@ var searchData=
   ['actionvalue_6',['actionValue',['../class_enemy_a_i_action.html#aeaeea88dcc55db144d3ee5bab75128a1',1,'EnemyAIAction']]],
   ['addunit_7',['AddUnit',['../class_grid_object.html#afddae646e8880febf5fe25ea268bd6df',1,'GridObject']]],
   ['addunitatgridposition_8',['AddUnitAtGridPosition',['../class_level_grid.html#a9036911e6cb7c673cca01e380822af22',1,'LevelGrid']]],
-  ['arrow_9',['Arrow',['../class_arrow.html',1,'']]],
-  ['arrow_2ecs_10',['Arrow.cs',['../_arrow_8cs.html',1,'']]],
-  ['attackroll_11',['AttackRoll',['../class_unit.html#a864ff3edd28b0e76d525ac464b739a07',1,'Unit']]],
-  ['awake_12',['Awake',['../class_base_action.html#a16d4eba1b197769cc78a275f23bd8c63',1,'BaseAction']]]
+  ['armormodifier_9',['ArmorModifier',['../class_unit_stats.html#a6e417a5af54224255ff866b78613fcb2',1,'UnitStats']]],
+  ['arrow_10',['Arrow',['../class_arrow.html',1,'']]],
+  ['arrow_2ecs_11',['Arrow.cs',['../_arrow_8cs.html',1,'']]],
+  ['attackroll_12',['AttackRoll',['../class_unit.html#a864ff3edd28b0e76d525ac464b739a07',1,'Unit']]],
+  ['audiocontroller_13',['AudioController',['../class_audio_controller.html',1,'']]],
+  ['audiocontroller_2ecs_14',['AudioController.cs',['../_audio_controller_8cs.html',1,'']]],
+  ['awake_15',['Awake',['../class_base_action.html#a16d4eba1b197769cc78a275f23bd8c63',1,'BaseAction']]]
 ];

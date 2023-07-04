@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['red_0',['Red',['../class_grid_system_visual.html#a194af742b6d7341712d22fb79b0a724eaee38e4d5dd68c4e440825018d549cb47',1,'GridSystemVisual']]],
-  ['redsoft_1',['RedSoft',['../class_grid_system_visual.html#a194af742b6d7341712d22fb79b0a724ea62550934ee7cea1ff7896e6873ae8f21',1,'GridSystemVisual']]]
+  ['fighter_0',['Fighter',['../class_unit.html#af933a3e70e658d50e9749d328b5365cca5db14795d4c6928f94927d0c0a060bee',1,'Unit']]]
 ];

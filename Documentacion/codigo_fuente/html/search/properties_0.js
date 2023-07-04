@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['characterportrait_0',['CharacterPortrait',['../class_unit.html#ae57c9bc185dc531036101b231af67114',1,'Unit']]]
+  ['armormodifier_0',['ArmorModifier',['../class_unit_stats.html#a6e417a5af54224255ff866b78613fcb2',1,'UnitStats']]]
 ];

@@ -8,5 +8,6 @@ var searchData=
   ['unitragdoll_5',['UnitRagdoll',['../class_unit_ragdoll.html',1,'']]],
   ['unitragdollspawner_6',['UnitRagdollSpawner',['../class_unit_ragdoll_spawner.html',1,'']]],
   ['unitselectedvisual_7',['UnitSelectedVisual',['../class_unit_selected_visual.html',1,'']]],
-  ['unitworldui_8',['UnitWorldUI',['../class_unit_world_u_i.html',1,'']]]
+  ['unitstats_8',['UnitStats',['../class_unit_stats.html',1,'']]],
+  ['unitworldui_9',['UnitWorldUI',['../class_unit_world_u_i.html',1,'']]]
 ];
